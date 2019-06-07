@@ -1,10 +1,21 @@
 {
   "name": "@react-native-community/art",
   "version": "0.0.1",
+  "license": "MIT",
+  "author": "@react-native-community",
+  "homepage": "https://github.com/react-native-community/react-native-art",
+  "description": "React-native library used for drawing vector graphics.",
   "main": "./lib/ReactNativeART",
-  "private": true,
+  "keywords": [
+    "react-native",
+    "react native",
+    "react-native-art",
+    "react-native-community",
+    "art"
+  ],
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
+    "android": "react-native run-android --root example",
     "test": "jest"
   },
   "dependencies": {
@@ -14,12 +25,6 @@
   "devDependencies": {
     "@babel/core": "^7.4.5",
     "@babel/runtime": "^7.4.5",
-    "babel-jest": "^24.8.0",
-    "jest": "^24.8.0",
-    "metro-react-native-babel-preset": "^0.54.1",
-    "react-test-renderer": "16.8.3"
-  },
-  "jest": {
-    "preset": "react-native"
+    "metro-react-native-babel-preset": "^0.54.1"
   }
 }

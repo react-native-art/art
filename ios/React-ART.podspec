@@ -6,24 +6,18 @@
 
 require "json"
 
-package = JSON.parse(File.read(File.join(__dir__, "..", "..", "package.json")))
+package = JSON.parse(File.read(File.join(__dir__, "..", "package.json")))
 version = package['version']
 
-source = { :git => 'https://github.com/facebook/react-native.git' }
-if version == '1000.0.0'
-  # This is an unpublished version, use the latest commit hash of the react-native repo, which we’re presumably in.
-  source[:commit] = `git rev-parse HEAD`.strip
-else
-  source[:tag] = "v#{version}"
-end
+source = { :git => 'https://github.com/react-native-community/react-native-art' }
 
 Pod::Spec.new do |s|
-  s.name                   = "React-ART"
+  s.name                   = "@react-native-community/art"
   s.version                = version
   s.summary                = "A library for drawing vector graphics."
   s.homepage               = "http://facebook.github.io/react-native/"
   s.license                = package["license"]
-  s.author                 = "Facebook, Inc. and its affiliates"
+  s.author                 = "React Native Community"
   s.platforms              = { :ios => "9.0", :tvos => "9.2" }
   s.source                 = source
   s.source_files           = "**/*.{h,m}"
