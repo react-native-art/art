@@ -4,7 +4,7 @@
 
 > NOTE: ART was extracted from core `react-native` as a part of "[Lean Core](https://github.com/facebook/react-native/issues/23313)" effort.
 
-React Native library used for drawing vector graphics.
+React Native module that allows you to draw vector graphics
 
 # Getting started
 
@@ -29,14 +29,14 @@ react-native link @react-native-community/art
 To migrate to this module you need to follow all the installation instructions above and change your imports from:
 
 ```js
-import { ART } from "react-native";
-const { Surface, Shape } = ART;
+import {ART} from 'react-native';
+const {Surface, Shape} = ART;
 ```
 
 to:
 
 ```js
-import { Surface, Shape } from "@react-native-community/art";
+import {Surface, Shape} from '@react-native-community/art';
 ```
 
 # Documentation
