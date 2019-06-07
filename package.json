@@ -16,7 +16,8 @@
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
     "android": "react-native run-android --root example",
-    "test": "jest"
+    "flow-check": "flow check",
+    "lint": "eslint . --cache"
   },
   "dependencies": {
     "react": "16.8.3",
@@ -25,6 +26,9 @@
   "devDependencies": {
     "@babel/core": "^7.4.5",
     "@babel/runtime": "^7.4.5",
+    "@react-native-community/eslint-config": "^0.0.5",
+    "eslint": "^5.16.0",
+    "flow-bin": "^0.92.0",
     "metro-react-native-babel-preset": "^0.54.1"
   }
 }
