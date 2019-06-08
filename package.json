@@ -20,6 +20,9 @@
     "lint": "eslint . --cache"
   },
   "dependencies": {
+    "art": "^0.10.3",
+    "invariant": "^2.2.4",
+    "prop-types": "^15.7.2",
     "react": "16.8.3",
     "react-native": "0.59.9"
   },
