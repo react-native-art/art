@@ -5,7 +5,7 @@
   "author": "@react-native-community",
   "homepage": "https://github.com/react-native-community/react-native-art",
   "description": "React Native module that allows you to draw vector graphics",
-  "main": "./lib/ReactNativeART",
+  "main": "./lib/index.js",
   "keywords": [
     "react-native",
     "react native",
