@@ -12,9 +12,9 @@ export default function Heart() {
   return (
     <Surface
       width={SURFACE_DIMENSIONS}
-      height={SURFACE_DIMENSIONS}
+      height={SURFACE_DIMENSIONS / 2}
       style={styles.surface}>
-      <Group x={SURFACE_DIMENSIONS / 2 - 50} y={SURFACE_DIMENSIONS / 2 - 50}>
+      <Group x={SURFACE_DIMENSIONS / 2 - 50} y={SURFACE_DIMENSIONS / 4 - 50}>
         <Shape d={HEART_SHAPE} fill={PINK} />
       </Group>
     </Surface>
@@ -23,6 +23,6 @@ export default function Heart() {
 
 const styles = StyleSheet.create({
   surface: {
-    backgroundColor: 'transparent',
+    backgroundColor: 'black',
   },
 });

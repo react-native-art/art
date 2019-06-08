@@ -7,8 +7,8 @@ import CustomText from './components/CustomText';
 
 export default function App() {
   return (
-    <SafeAreaView>
-      <ScrollView contentContainerStyle={styles.container}>
+    <SafeAreaView style={styles.container}>
+      <ScrollView>
         <CustomText />
         <Heart />
         <CustomShape />
