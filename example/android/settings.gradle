@@ -1,3 +1,5 @@
 rootProject.name = 'example'
 
-include ':app', ':reactnativeart'
+include ':app'
+include ':react-native-art'
+project(':react-native-art').projectDir = new File(rootProject.projectDir, '../../android')
