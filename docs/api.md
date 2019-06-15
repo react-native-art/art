@@ -55,20 +55,20 @@ function GrouppedHearts() {
 
 Used to draw arbitrary vector shapes from Path. Shape implements Transform as a mixin which means it has all transform methods available for moving, scaling and rotating a shape.
 
-|       Prop        |             Type              |  Default  |
-| :---------------: | :---------------------------: | :-------: |
-|  ...opacityProps  |        `OpacityProps`         |    ---    |
-| ...transformProps |       `TransformProps`        |    ---    |
-|       fill        |       `string | Brush`        |    ---    |
-|      stroke       |           `string`            |    ---    |
-|     strokeCap     | `'butt' | 'square' | 'round'` | `'round'` |
-|    strokeDash     |        `Array<number>`        |    ---    |
-|    strokeJoin     | `'miter' | 'bevel' | 'round'` | `'round'` |
-|    strokeWidth    |           `number`            |    `1`    |
-|         d         |        `string | Path`        |    ---    |
-|       width       |           `number`            |    `0`    |
-|      height       |           `number`            |    `0`    |
-|     children      |         `React.Node`          |    ---    |
+|       Prop        |              Type               |  Default  |
+| :---------------: | :-----------------------------: | :-------: |
+|  ...opacityProps  |         `OpacityProps`          |    ---    |
+| ...transformProps |        `TransformProps`         |    ---    |
+|       fill        |        `string \| Brush`        |    ---    |
+|      stroke       |            `string`             |    ---    |
+|     strokeCap     | `'butt' \| 'square' \| 'round'` | `'round'` |
+|    strokeDash     |         `Array<number>`         |    ---    |
+|    strokeJoin     | `'miter' \| 'bevel' \| 'round'` | `'round'` |
+|    strokeWidth    |            `number`             |    `1`    |
+|         d         |        `string \| Path`         |    ---    |
+|       width       |            `number`             |    `0`    |
+|      height       |            `number`             |    `0`    |
+|     children      |          `React.Node`           |    ---    |
 
 ```js
 import {Dimensions} from 'react-native';
@@ -92,22 +92,22 @@ function Heart() {
 
 Text component creates a shape based on text content using native text rendering.
 
-|       Prop        |             Type              |  Default  |
-| :---------------: | :---------------------------: | :-------: |
-| ...transformProps |       `TransformProps`        |    ---    |
-|  ...opacityProps  |        `OpacityProps`         |    ---    |
-|       fill        |       `string | Brush`        |    ---    |
-|      stroke       |           `string`            |    ---    |
-|     strokeCap     | `'butt' | 'square' | 'round'` | `'round'` |
-|    strokeDash     |        `Array<number>`        |    ---    |
-|    strokeJoin     | `'miter' | 'bevel' | 'round'` | `'round'` |
-|    strokeWidth    |           `number`            |    `1`    |
-|       width       |           `number`            |    `0`    |
-|      height       |           `number`            |    `0`    |
-|     alignment     | `'center' | 'left' | 'right'` | `'left'`  |
-|       font        |        `string | Font`        |    ---    |
-|       path        |        `string | Path`        |    ---    |
-|     children      |   `string | Array<string>`    |    ---    |
+|       Prop        |              Type               |  Default  |
+| :---------------: | :-----------------------------: | :-------: |
+| ...transformProps |        `TransformProps`         |    ---    |
+|  ...opacityProps  |         `OpacityProps`          |    ---    |
+|       fill        |        `string \| Brush`        |    ---    |
+|      stroke       |            `string`             |    ---    |
+|     strokeCap     | `'butt' \| 'square' \| 'round'` | `'round'` |
+|    strokeDash     |         `Array<number>`         |    ---    |
+|    strokeJoin     | `'miter' \| 'bevel' \| 'round'` | `'round'` |
+|    strokeWidth    |            `number`             |    `1`    |
+|       width       |            `number`             |    `0`    |
+|      height       |            `number`             |    `0`    |
+|     alignment     | `'center' \| 'left' \| 'right'` | `'left'`  |
+|       font        |        `string \| Font`         |    ---    |
+|       path        |        `string \| Path`         |    ---    |
+|     children      |    `string \| Array<string>`    |    ---    |
 
 ## Path
 
