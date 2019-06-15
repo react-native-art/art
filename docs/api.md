@@ -4,12 +4,12 @@
 
 Container for all other ART components
 
-|   Prop   |     Type     | Required |
-| :------: | :----------: | :------: |
-|  height  |   `number`   |    No    |
-|  width   |   `number`   |    No    |
-|  style   |    `any`     |    No    |
-| children | `React.Node` |    No    |
+|   Prop   |     Type     | Default |
+| :------: | :----------: | :-----: |
+|  height  |   `number`   |   `0`   |
+|  width   |   `number`   |   `0`   |
+|  style   |    `any`     |   ---   |
+| children | `React.Node` |   ---   |
 
 ```js
 import {Dimensions} from 'react-native';
@@ -30,11 +30,11 @@ function Heart() {
 
 Container to combine shapes or other groups into hierarchies that can be transformed as a set.
 
-|       Prop        |       Type       | Required |
-| :---------------: | :--------------: | :------: |
-|  ...opacityProps  |  `OpacityProps`  |    No    |
-| ...transformProps | `TransformProps` |    No    |
-|     children      |   `React.Node`   |    No    |
+|       Prop        |       Type       | Default |
+| :---------------: | :--------------: | :-----: |
+|  ...opacityProps  |  `OpacityProps`  |   ---   |
+| ...transformProps | `TransformProps` |   ---   |
+|     children      |   `React.Node`   |   ---   |
 
 ```js
 import {Dimensions} from 'react-native';
@@ -55,20 +55,20 @@ function GrouppedHearts() {
 
 Used to draw arbitrary vector shapes from Path. Shape implements Transform as a mixin which means it has all transform methods available for moving, scaling and rotating a shape.
 
-|       Prop        |             Type              | Required |
-| :---------------: | :---------------------------: | :------: |
-|  ...opacityProps  |        `OpacityProps`         |    No    |
-| ...transformProps |       `TransformProps`        |    No    |
-|       fill        |       `string | Brush`        |    No    |
-|      stroke       |           `string`            |    No    |
-|     strokeCap     | `'butt' | 'square' | 'round'` |    No    |
-|    strokeDash     |        `Array<number>`        |    No    |
-|    strokeJoin     | `'miter' | 'bevel' | 'round'` |    No    |
-|    strokeWidth    |           `number`            |    No    |
-|         d         |        `string | Path`        |    No    |
-|       width       |           `number`            |    No    |
-|      height       |           `number`            |    No    |
-|     children      |         `React.Node`          |    No    |
+|       Prop        |             Type              |  Default  |
+| :---------------: | :---------------------------: | :-------: |
+|  ...opacityProps  |        `OpacityProps`         |    ---    |
+| ...transformProps |       `TransformProps`        |    ---    |
+|       fill        |       `string | Brush`        |    ---    |
+|      stroke       |           `string`            |    ---    |
+|     strokeCap     | `'butt' | 'square' | 'round'` | `'round'` |
+|    strokeDash     |        `Array<number>`        |    ---    |
+|    strokeJoin     | `'miter' | 'bevel' | 'round'` | `'round'` |
+|    strokeWidth    |           `number`            |    `1`    |
+|         d         |        `string | Path`        |    ---    |
+|       width       |           `number`            |    `0`    |
+|      height       |           `number`            |    `0`    |
+|     children      |         `React.Node`          |    ---    |
 
 ```js
 import {Dimensions} from 'react-native';
@@ -92,22 +92,22 @@ function Heart() {
 
 Text component creates a shape based on text content using native text rendering.
 
-|       Prop        |             Type              | Required |
-| :---------------: | :---------------------------: | :------: |
-| ...transformProps |       `TransformProps`        |    No    |
-|  ...opacityProps  |        `OpacityProps`         |    No    |
-|       fill        |       `string | Brush`        |    No    |
-|      stroke       |           `string`            |    No    |
-|     strokeCap     | `'butt' | 'square' | 'round'` |    No    |
-|    strokeDash     |        `Array<number>`        |    No    |
-|    strokeJoin     | `'miter' | 'bevel' | 'round'` |    No    |
-|    strokeWidth    |           `number`            |    No    |
-|       width       |           `number`            |    No    |
-|      height       |           `number`            |    No    |
-|     alignment     | `'center' | 'left' | 'right'` |    No    |
-|       font        |        `string | Font`        |    No    |
-|       path        |        `string | Path`        |    No    |
-|     children      |   `string | Array<string>`    |    No    |
+|       Prop        |             Type              |  Default  |
+| :---------------: | :---------------------------: | :-------: |
+| ...transformProps |       `TransformProps`        |    ---    |
+|  ...opacityProps  |        `OpacityProps`         |    ---    |
+|       fill        |       `string | Brush`        |    ---    |
+|      stroke       |           `string`            |    ---    |
+|     strokeCap     | `'butt' | 'square' | 'round'` | `'round'` |
+|    strokeDash     |        `Array<number>`        |    ---    |
+|    strokeJoin     | `'miter' | 'bevel' | 'round'` | `'round'` |
+|    strokeWidth    |           `number`            |    `1`    |
+|       width       |           `number`            |    `0`    |
+|      height       |           `number`            |    `0`    |
+|     alignment     | `'center' | 'left' | 'right'` | `'left'`  |
+|       font        |        `string | Font`        |    ---    |
+|       path        |        `string | Path`        |    ---    |
+|     children      |   `string | Array<string>`    |    ---    |
 
 ## Path
 
@@ -295,19 +295,18 @@ Generate a transform that can applied to ART elements.
 
 [Transform docs](https://github.com/sebmarkbage/art/blob/842d2d56c6436adc0bbb0c065a296f295b95bc0a/docs/ART/ART.Transform.md)
 
-
 ## ClippingRectangle
 
 Control display area of graphic.
 
-|      Prop       |      Type      | Required |
-| :-------------: | :------------: | :------: |
-| ...opacityProps | `OpacityProps` |    No    |
-|        x        |    `number`    |    No    |
-|        y        |    `number`    |    No    |
-|      width      |    `number`    |    No    |
-|     height      |    `number`    |    No    |
-|    children     |  `React.Node`  |    No    |
+|      Prop       |      Type      | Default |
+| :-------------: | :------------: | :-----: |
+| ...opacityProps | `OpacityProps` |   ---   |
+|        x        |    `number`    |   `0`   |
+|        y        |    `number`    |   `0`   |
+|      width      |    `number`    |   `0`   |
+|     height      |    `number`    |   `0`   |
+|    children     |  `React.Node`  |   ---   |
 
 ```js
 import React from 'react';
@@ -337,41 +336,41 @@ function Component() {
 
 ### OpacityProps
 
-|  Prop   |   Type    | Required |
-| :-----: | :-------: | :------: |
-| visible | `boolean` |    No    |
-| opacity | `number`  |    No    |
+|  Prop   |   Type    | Default |
+| :-----: | :-------: | :-----: |
+| visible | `boolean` | `true`  |
+| opacity | `number`  |   ---   |
 
 ### TransformObject
 
-| Prop |   Type   | Required |
-| :--: | :------: | :------: |
-|  y   | `number` |    No    |
-|  x   | `number` |    No    |
-|  yy  | `number` |    No    |
-|  xx  | `number` |    No    |
-|  yx  | `number` |    No    |
-|  xy  | `number` |    No    |
+| Prop |   Type   | Default |
+| :--: | :------: | :-----: |
+|  y   | `number` |   `0`   |
+|  x   | `number` |   `0`   |
+|  yy  | `number` |   `1`   |
+|  xx  | `number` |   `1`   |
+|  yx  | `number` |   `0`   |
+|  xy  | `number` |   `0`   |
 
 ### TransformProps
 
-|   Prop    |       Type        | Required |
-| :-------: | :---------------: | :------: |
-|  scaleX   |     `number`      |    No    |
-|  scaleY   |     `number`      |    No    |
-|   scale   |     `number`      |    No    |
-|     x     |     `number`      |    No    |
-|     y     |     `number`      |    No    |
-| rotation  |     `number`      |    No    |
-|  originX  |     `number`      |    No    |
-|  originY  |     `number`      |    No    |
-| transform | `TransformObject` |    No    |
+|   Prop    |       Type        | Default |
+| :-------: | :---------------: | :-----: |
+|  scaleX   |     `number`      |   `1`   |
+|  scaleY   |     `number`      |   `1`   |
+|   scale   |     `number`      |   ---   |
+|     x     |     `number`      |   `0`   |
+|     y     |     `number`      |   `0`   |
+| rotation  |     `number`      |   `0`   |
+|  originX  |     `number`      |   ---   |
+|  originY  |     `number`      |   ---   |
+| transform | `TransformObject` |   ---   |
 
 ### Font
 
-|    Prop    |  Type  | Required |
-| :--------: | :----: | :------: |
-| fontFamily | string |   Yes    |
-|  fontSize  | number |    No    |
-| fontWeight | string |    No    |
-| fontStyle  | string |    No    |
+|    Prop    |   Type   | Default |
+| :--------: | :------: | :-----: |
+| fontFamily | `string` |   ---   |
+|  fontSize  | `number` |  `12`   |
+| fontWeight | `string` | `'400'` |
+| fontStyle  | `string` |   ---   |
