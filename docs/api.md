@@ -27,11 +27,11 @@ function Heart() {
 
 Container to combine shapes or other groups into hierarchies that can be transformed as a set.
 
-|       Prop        |       Type       | Default |
-| :---------------: | :--------------: | :-----: |
-|  ...opacityProps  |  `OpacityProps`  |   ---   |
-| ...transformProps | `TransformProps` |   ---   |
-|     children      |   `React.Node`   |   ---   |
+|       Prop        |                 Type                  | Default |
+| :---------------: | :-----------------------------------: | :-----: |
+|  ...opacityProps  |   [`OpacityProps`](###OpacityProps)   |   ---   |
+| ...transformProps | [`TransformProps`](###TransformProps) |   ---   |
+|     children      |             `React.Node`              |   ---   |
 
 ```jsx
 import {Surface, Group} from '@react-native-community/art';
@@ -49,31 +49,28 @@ function GrouppedHearts() {
 
 Used to draw arbitrary vector shapes from Path. Shape implements Transform as a mixin which means it has all transform methods available for moving, scaling and rotating a shape.
 
-|       Prop        |              Type               |  Default  |
-| :---------------: | :-----------------------------: | :-------: |
-|  ...opacityProps  |         `OpacityProps`          |    ---    |
-| ...transformProps |        `TransformProps`         |    ---    |
-|       fill        |        `string \| Brush`        |    ---    |
-|      stroke       |            `string`             |    ---    |
-|     strokeCap     | `'butt' \| 'square' \| 'round'` | `'round'` |
-|    strokeDash     |         `Array<number>`         |    ---    |
-|    strokeJoin     | `'miter' \| 'bevel' \| 'round'` | `'round'` |
-|    strokeWidth    |            `number`             |    `1`    |
-|         d         |        `string \| Path`         |    ---    |
-|       width       |            `number`             |    `0`    |
-|      height       |            `number`             |    `0`    |
-|     children      |          `React.Node`           |    ---    |
+|       Prop        |                 Type                  |  Default  |
+| :---------------: | :-----------------------------------: | :-------: |
+|  ...opacityProps  |   [`OpacityProps`](###OpacityProps)   |    ---    |
+| ...transformProps | [`TransformProps`](###TransformProps) |    ---    |
+|       fill        |           `string \| Brush`           |    ---    |
+|      stroke       |               `string`                |    ---    |
+|     strokeCap     |    `'butt' \| 'square' \| 'round'`    | `'round'` |
+|    strokeDash     |            `Array<number>`            |    ---    |
+|    strokeJoin     |    `'miter' \| 'bevel' \| 'round'`    | `'round'` |
+|    strokeWidth    |               `number`                |    `1`    |
+|         d         |           `string \| Path`            |    ---    |
+|       width       |               `number`                |    `0`    |
+|      height       |               `number`                |    `0`    |
+|     children      |             `React.Node`              |    ---    |
 
 ```jsx
-import {Surface, Shape} from '@react-native-community/art';
+import {Surface, Shape, Path} from '@react-native-community/art';
 
-function Heart() {
+function SomeShape() {
   return (
     <Surface width={500} height={500}>
-      <Shape
-        d="M 10,30 A 20,20 0,0,1 50,30 A 20,20 0,0,1 90,30 Q 90,60 50,90 Q 10,60 10,30 z"
-        fill="#d39494"
-      />
+      <Shape d={new Path().moveTo(0, 0).lineTo(200, 200)} fill="#d39494" />
     </Surface>
   );
 }
@@ -83,34 +80,34 @@ function Heart() {
 
 Text component creates a shape based on text content using native text rendering.
 
-|       Prop        |              Type               |  Default  |
-| :---------------: | :-----------------------------: | :-------: |
-| ...transformProps |        `TransformProps`         |    ---    |
-|  ...opacityProps  |         `OpacityProps`          |    ---    |
-|       fill        |        `string \| Brush`        |    ---    |
-|      stroke       |            `string`             |    ---    |
-|     strokeCap     | `'butt' \| 'square' \| 'round'` | `'round'` |
-|    strokeDash     |         `Array<number>`         |    ---    |
-|    strokeJoin     | `'miter' \| 'bevel' \| 'round'` | `'round'` |
-|    strokeWidth    |            `number`             |    `1`    |
-|       width       |            `number`             |    `0`    |
-|      height       |            `number`             |    `0`    |
-|     alignment     | `'center' \| 'left' \| 'right'` | `'left'`  |
-|       font        |        `string \| Font`         |    ---    |
-|       path        |        `string \| Path`         |    ---    |
-|     children      |    `string \| Array<string>`    |    ---    |
+|       Prop        |                 Type                  |  Default  |
+| :---------------: | :-----------------------------------: | :-------: |
+|  ...opacityProps  |   [`OpacityProps`](###OpacityProps)   |    ---    |
+| ...transformProps | [`TransformProps`](###TransformProps) |    ---    |
+|       fill        |           `string \| Brush`           |    ---    |
+|      stroke       |               `string`                |    ---    |
+|     strokeCap     |    `'butt' \| 'square' \| 'round'`    | `'round'` |
+|    strokeDash     |            `Array<number>`            |    ---    |
+|    strokeJoin     |    `'miter' \| 'bevel' \| 'round'`    | `'round'` |
+|    strokeWidth    |               `number`                |    `1`    |
+|       width       |               `number`                |    `0`    |
+|      height       |               `number`                |    `0`    |
+|     alignment     |    `'center' \| 'left' \| 'right'`    | `'left'`  |
+|       font        |           `string \| Font`            |    ---    |
+|       path        |           `string \| Path`            |    ---    |
+|     children      |       `string \| Array<string>`       |    ---    |
 
 ## Path
 
 Generate an SVG `path` that you can pass to the `Shape` element.
 
-`constructor`
+### `constructor`
 
 ```jsx
 new Path(path: string | Path)
 ```
 
-`Path.move`
+### `move`
 
 Move current context from current position by `x` and `y`.
 
@@ -118,7 +115,7 @@ Move current context from current position by `x` and `y`.
 function move(x: number, y: number): Path;
 ```
 
-`Path.moveTo`
+### `moveTo`
 
 Move current context from current position to absolute coordinate `x` and `y`.
 
@@ -126,7 +123,7 @@ Move current context from current position to absolute coordinate `x` and `y`.
 function moveTo(x: number, y: number): Path;
 ```
 
-`Path.line`
+### `line`
 
 Draw a line from current position to relative `x` and `y`.
 
@@ -134,7 +131,7 @@ Draw a line from current position to relative `x` and `y`.
 function line(x: number, y: number): Path;
 ```
 
-`Path.lineTo`
+### `lineTo`
 
 Draw a line from current poistion to absolute coordinate `x` and `y`.
 
@@ -142,7 +139,7 @@ Draw a line from current poistion to absolute coordinate `x` and `y`.
 function lineTo(x: number, y: number): Path;
 ```
 
-`Path.curve`
+### `curve`
 
 Draw a cubic bezier curve to relative position.
 
@@ -157,7 +154,7 @@ function curve(
 ): Path;
 ```
 
-`Path.curveTo`
+### `curveTo`
 
 Draw a bezier curve to absolute position.
 
@@ -172,7 +169,7 @@ function curveTo(
 ): Path
 ```
 
-`Path.arc`
+### `arc`
 
 Draw an arc with specific arguments.
 
@@ -188,7 +185,7 @@ function arc(
 ): Path;
 ```
 
-`Path.arcTo`
+### `arcTo`
 
 Draw an arc to absolute coordinates.
 
@@ -204,15 +201,15 @@ function arcTo(
 ): Path;
 ```
 
-`Path.counterArc`
+### `counterArc`
 
 Same as `arc`, opposite clockwise.
 
-`Path.counterArcTo`
+### `counterArcTo`
 
 Same as `arcTo`, opposite clockwise.
 
-`Path.close`
+### `close`
 
 Draws a line to the first point in the current sub-path and begins a new sub-path.
 
@@ -220,7 +217,7 @@ Draws a line to the first point in the current sub-path and begins a new sub-pat
 function close(): Path;
 ```
 
-`Path.reset`
+### `reset`
 
 Reset the current path.
 
@@ -228,7 +225,7 @@ Reset the current path.
 function reset(): Path;
 ```
 
-`Path.toJSON`
+### `toJSON`
 
 Return the current path points, which can be used on Shape d attribute.
 
