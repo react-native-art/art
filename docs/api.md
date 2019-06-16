@@ -11,15 +11,12 @@ Container for all other ART components
 |  style   |    `any`     |   ---   |
 | children | `React.Node` |   ---   |
 
-```js
-import {Dimensions} from 'react-native';
+```jsx
 import {Surface} from '@react-native-community/art';
-
-const SURFACE_DIMENSIONS = Dimensions.get('window').width;
 
 function Heart() {
   return (
-    <Surface width={SURFACE_DIMENSIONS} height={SURFACE_DIMENSIONS}>
+    <Surface width={500} height={500}>
       {renderARTShapes()}
     </Surface>
   );
@@ -36,15 +33,12 @@ Container to combine shapes or other groups into hierarchies that can be transfo
 | ...transformProps | `TransformProps` |   ---   |
 |     children      |   `React.Node`   |   ---   |
 
-```js
-import {Dimensions} from 'react-native';
+```jsx
 import {Surface, Group} from '@react-native-community/art';
-
-const SURFACE_DIMENSIONS = Dimensions.get('window').width;
 
 function GrouppedHearts() {
   return (
-    <Surface width={SURFACE_DIMENSIONS} height={SURFACE_DIMENSIONS}>
+    <Surface width={500} height={500}>
       <Group>{renderARTGroupContents()}</Group>
     </Surface>
   );
@@ -70,15 +64,12 @@ Used to draw arbitrary vector shapes from Path. Shape implements Transform as a 
 |      height       |            `number`             |    `0`    |
 |     children      |          `React.Node`           |    ---    |
 
-```js
-import {Dimensions} from 'react-native';
+```jsx
 import {Surface, Shape} from '@react-native-community/art';
-
-const SURFACE_DIMENSIONS = Dimensions.get('window').width;
 
 function Heart() {
   return (
-    <Surface width={SURFACE_DIMENSIONS} height={SURFACE_DIMENSIONS}>
+    <Surface width={500} height={500}>
       <Shape
         d="M 10,30 A 20,20 0,0,1 50,30 A 20,20 0,0,1 90,30 Q 90,60 50,90 Q 10,60 10,30 z"
         fill="#d39494"
@@ -115,7 +106,7 @@ Generate an SVG `path` that you can pass to the `Shape` element.
 
 `constructor`
 
-```js
+```jsx
 new Path(path: string | Path)
 ```
 
@@ -123,7 +114,7 @@ new Path(path: string | Path)
 
 Move current context from current position by `x` and `y`.
 
-```js
+```jsx
 function move(x: number, y: number): Path;
 ```
 
@@ -131,7 +122,7 @@ function move(x: number, y: number): Path;
 
 Move current context from current position to absolute coordinate `x` and `y`.
 
-```js
+```jsx
 function moveTo(x: number, y: number): Path;
 ```
 
@@ -139,7 +130,7 @@ function moveTo(x: number, y: number): Path;
 
 Draw a line from current position to relative `x` and `y`.
 
-```js
+```jsx
 function line(x: number, y: number): Path;
 ```
 
@@ -147,7 +138,7 @@ function line(x: number, y: number): Path;
 
 Draw a line from current poistion to absolute coordinate `x` and `y`.
 
-```js
+```jsx
 function lineTo(x: number, y: number): Path;
 ```
 
@@ -155,7 +146,7 @@ function lineTo(x: number, y: number): Path;
 
 Draw a cubic bezier curve to relative position.
 
-```js
+```jsx
 function curve(
   x1: number,
   y1: number,
@@ -170,7 +161,7 @@ function curve(
 
 Draw a bezier curve to absolute position.
 
-```js
+```jsx
 function curveTo(
   x1: number,
   y1: number,
@@ -185,7 +176,7 @@ function curveTo(
 
 Draw an arc with specific arguments.
 
-```js
+```jsx
 function arc(
   x: number,
   y: number,
@@ -201,7 +192,7 @@ function arc(
 
 Draw an arc to absolute coordinates.
 
-```js
+```jsx
 function arcTo(
   x: number,
   y: number,
@@ -225,7 +216,7 @@ Same as `arcTo`, opposite clockwise.
 
 Draws a line to the first point in the current sub-path and begins a new sub-path.
 
-```js
+```jsx
 function close(): Path;
 ```
 
@@ -233,7 +224,7 @@ function close(): Path;
 
 Reset the current path.
 
-```js
+```jsx
 function reset(): Path;
 ```
 
@@ -241,7 +232,7 @@ function reset(): Path;
 
 Return the current path points, which can be used on Shape d attribute.
 
-```js
+```jsx
 function toJSON() => Array<number | string>;
 ```
 
@@ -249,7 +240,7 @@ function toJSON() => Array<number | string>;
 
 Creates a linear gradient fill.
 
-```js
+```jsx
 function LinearGradient({
   stops: GradientStops,
   x1?: number,
@@ -263,7 +254,7 @@ function LinearGradient({
 
 Creates a radial gradient fill.
 
-```js
+```jsx
 function RadialGradient({
   stops: GradientStops,
   x1?: number,
@@ -279,7 +270,7 @@ Creates a pattern fill.
 
 > _This component is not exactly working as expected. [More context here.](https://github.com/facebook/react-native/issues/1462)_
 
-```js
+```jsx
 function Pattern(
   url: number | string,
   width: number,
@@ -308,7 +299,7 @@ Control display area of graphic.
 |     height      |    `number`    |   `0`   |
 |    children     |  `React.Node`  |   ---   |
 
-```js
+```jsx
 import React from 'react';
 import {
   Surface,

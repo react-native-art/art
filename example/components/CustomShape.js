@@ -10,10 +10,9 @@ import {
   LinearGradient,
 } from '@react-native-community/art';
 
-const SURFACE_WIDTH = Dimensions.get('window').width;
-const SURFACE_HEIGHT = SURFACE_WIDTH / 2;
-
 export default function CustomShape() {
+  const surfaceWidth = Dimensions.get('window').width;
+  const surfaceHeight = surfaceWidth / 2;
   const gradient = new LinearGradient(
     {
       '.5': 'blue',
@@ -33,14 +32,11 @@ export default function CustomShape() {
     .line(-190, 120);
 
   return (
-    <Surface
-      width={SURFACE_WIDTH}
-      height={SURFACE_HEIGHT}
-      style={styles.surface}>
+    <Surface width={surfaceWidth} height={surfaceHeight} style={styles.surface}>
       <Group
         transform={new Transform().scale(0.5, 0.5)}
-        x={SURFACE_WIDTH / 2 - 90}
-        y={SURFACE_HEIGHT / 2 - 70}>
+        x={surfaceWidth / 2 - 90}
+        y={surfaceHeight / 2 - 70}>
         <Shape d={path} fill={gradient} />
       </Group>
     </Surface>
