@@ -19,7 +19,6 @@ Installing on a iOS:
 - Open `example/ios/example.xcodeproj`
 - Click `run` in the top left corner of `Xcode`.
 
-
 Installing on Android:
 
 - Connect Android Device or open Android Emulator
