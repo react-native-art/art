@@ -14,7 +14,7 @@ All work on React Native ART happens directly on GitHub. Contributors send pull 
 
 You can test your changes by installing `example` app on a simulator or device:
 
-Installing on a ios:
+Installing on a iOS:
 
 - Open `example/ios/example.xcodeproj`
 - Click `run` in the top left corner of `Xcode`.
