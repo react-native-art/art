@@ -16,6 +16,10 @@ You can test your changes by installing `example` app on a simulator or device:
 
 Installing on a iOS:
 
+- Run `yarn ios`
+
+or
+
 - Open `example/ios/example.xcodeproj`
 - Click `run` in the top left corner of `Xcode`.
 
