@@ -14,7 +14,7 @@ All work on React Native ART happens directly on GitHub. Contributors send pull 
 
 You can test your changes by installing `example` app on a simulator or device:
 
-Installing on a iOS:
+Installing on iOS:
 
 - Run `yarn ios`
 
