@@ -16,6 +16,7 @@
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
     "android": "react-native run-android --root example",
+    "ios": "react-native run-ios --project-path example/ios --scheme example",
     "flow-check": "flow check",
     "lint": "eslint . --cache"
   },
