@@ -1,0 +1,31 @@
+{
+  "compilerOptions": {
+    "target": "es2017",
+    "module": "commonjs",
+    "lib": ["es2017"],
+    "jsx": "react-native",
+    "rootDir": "lib",
+    "outDir": "build",
+
+    "declaration": true,
+    "declarationMap": true,
+    "composite": true,
+    "emitDeclarationOnly": true,
+
+    "strict": true,
+
+    /* Additional Checks */
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+
+    "typeRoots": ["definitions"],
+
+    /* Module Resolution Options */
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "resolveJsonModule": true
+  },
+  "exclude": ["**/__tests__/**/*", "**/build/**/*"]
+}

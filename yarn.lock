@@ -704,6 +704,27 @@
     eslint-plugin-react-native "3.6.0"
     prettier "1.16.4"
 
+"@types/prop-types@*":
+  version "15.7.1"
+  resolved "https://registry.yarnpkg.com/@types/prop-types/-/prop-types-15.7.1.tgz#f1a11e7babb0c3cad68100be381d1e064c68f1f6"
+  integrity sha512-CFzn9idOEpHrgdw8JsoTkaDDyRWk1jrzIV8djzcgpq0y9tG4B4lFT+Nxh52DVpDXV+n4+NPNv7M1Dj5uMp6XFg==
+
+"@types/react-native@^0.57.63":
+  version "0.57.63"
+  resolved "https://registry.yarnpkg.com/@types/react-native/-/react-native-0.57.63.tgz#56cc7e6426ffe8e3d149c86d3396496370a75396"
+  integrity sha512-viAtvjgb/6cn4gu7eEUhTxhlYZ8oOG+1OdHznWac1BgbiPEGcDmamnW/+KZR9gRjsXY9qZY+nfyzVjcwhYmlkw==
+  dependencies:
+    "@types/prop-types" "*"
+    "@types/react" "*"
+
+"@types/react@*", "@types/react@^16.8.20":
+  version "16.8.20"
+  resolved "https://registry.yarnpkg.com/@types/react/-/react-16.8.20.tgz#4f633ecbd0a4d56d0ccc50fff6f9321bbcd7d583"
+  integrity sha512-ZLmI+ubSJpfUIlQuULDDrdyuFQORBuGOvNnMue8HeA0GVrAJbWtZQhcBvnBPNRBI/GrfSfrKPFhthzC2SLEtLQ==
+  dependencies:
+    "@types/prop-types" "*"
+    csstype "^2.2.0"
+
 "@typescript-eslint/eslint-plugin@^1.5.0":
   version "1.9.0"
   resolved "https://registry.yarnpkg.com/@typescript-eslint/eslint-plugin/-/eslint-plugin-1.9.0.tgz#29d73006811bf2563b88891ceeff1c5ea9c8d9c6"
@@ -1429,6 +1450,11 @@ cross-spawn@^6.0.0, cross-spawn@^6.0.5:
     semver "^5.5.0"
     shebang-command "^1.2.0"
     which "^1.2.9"
+
+csstype@^2.2.0:
+  version "2.6.5"
+  resolved "https://registry.yarnpkg.com/csstype/-/csstype-2.6.5.tgz#1cd1dff742ebf4d7c991470ae71e12bb6751e034"
+  integrity sha512-JsTaiksRsel5n7XwqPAfB0l3TFKdpjW/kgAELf9vrb5adGA7UCPLajKK5s3nFrcFm3Rkyp/Qkgl73ENc1UY3cA==
 
 debug@2.6.9, debug@^2.2.0, debug@^2.3.3:
   version "2.6.9"
@@ -4893,6 +4919,11 @@ typedarray@^0.0.6:
   version "0.0.6"
   resolved "https://registry.yarnpkg.com/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
   integrity sha1-hnrHTjhkGHsdPUfZlqeOxciDB3c=
+
+typescript@^3.5.2:
+  version "3.5.2"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-3.5.2.tgz#a09e1dc69bc9551cadf17dba10ee42cf55e5d56c"
+  integrity sha512-7KxJovlYhTX5RaRbUdkAXN1KUZ8PwWlTzQdHV6xNqvuFOs7+WBo10TQUqT19Q/Jz2hk5v9TQDIhyLhhJY4p5AA==
 
 ua-parser-js@^0.7.18:
   version "0.7.19"

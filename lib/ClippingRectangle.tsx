@@ -4,24 +4,25 @@
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
  *
- * @flow
  */
 
 import * as React from 'react';
 import merge from 'react-native/Libraries/vendor/core/merge';
 import {extractOpacity, extractTransform} from './helpers';
 import {NativeGroup} from './nativeComponents';
-import type {OpacityProps} from './types';
+import {OpacityProps} from './types';
 
 type ClippingRectangleProps = OpacityProps & {
-  x: number,
-  y: number,
-  width: number,
-  height: number,
-  children?: React.Node,
+  x?: number;
+  y?: number;
+  width?: number;
+  height?: number;
+  children?: React.ReactNode;
 };
 
-export default class ClippingRectangle extends React.Component<ClippingRectangleProps> {
+export default class ClippingRectangle extends React.Component<
+  ClippingRectangleProps
+> {
   static defaultProps = {
     x: 0,
     y: 0,
@@ -38,6 +39,7 @@ export default class ClippingRectangle extends React.Component<ClippingRectangle
     ];
 
     // The current clipping API requires x and y to be ignored in the transform
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const {x, y, ...propsExcludingXAndY} = merge(this.props);
 
     return (

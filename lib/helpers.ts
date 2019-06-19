@@ -4,17 +4,15 @@
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
  *
- * @flow
  */
-
 import Color from 'art/core/color';
 import Transform from 'art/core/transform';
-import type {
+import {
   OpacityProps,
   TransformProps,
-  ColorType,
   StrokeJoin,
   StrokeCap,
+  ColorType,
   Brush,
   Alignment,
   Font,
@@ -112,7 +110,7 @@ const PATTERN = 3;
 
 function applyBoundingBoxToBrushData(
   brushData: Array<number>,
-  props: {width: number, height: number},
+  props: {width: number; height: number},
 ) {
   const type = brushData[0];
   const width = +props.width;
@@ -135,13 +133,17 @@ function applyBoundingBoxToBrushData(
 }
 
 export function extractBrush(
-  colorOrBrush?: Brush | string,
-  props: {width: number, height: number},
+  colorOrBrush: Brush | string | undefined,
+  props: {width: number; height: number},
 ) {
   if (colorOrBrush == null) {
     return null;
   }
-  if (colorOrBrush._brush) {
+
+  if (typeof colorOrBrush === 'string') {
+    const c = new Color(colorOrBrush);
+    return [SOLID_COLOR, c.red / 255, c.green / 255, c.blue / 255, c.alpha];
+  } else {
     if (colorOrBrush._bb) {
       // The legacy API for Gradients allow for the bounding box to be used
       // as a convenience for specifying gradient positions. This should be
@@ -149,15 +151,11 @@ export function extractBrush(
       // doesn't handle update to the bounding box correctly. That's why we
       // mutate this so that if it's reused, we reuse the same resolved box.
 
-      // $FlowFixMe
       applyBoundingBoxToBrushData(colorOrBrush._brush, props);
-      // $FlowFixMe
       colorOrBrush._bb = false;
     }
     return colorOrBrush._brush;
   }
-  const c = new Color(colorOrBrush);
-  return [SOLID_COLOR, c.red / 255, c.green / 255, c.blue / 255, c.alpha];
 }
 
 export function extractAlignment(alignment?: Alignment) {
