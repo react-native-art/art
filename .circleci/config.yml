@@ -23,6 +23,9 @@ jobs:
       - run:
           name: Flow
           command: yarn flow-check
+      - run:
+          name: Unit Tests
+          command: yarn test
 
 workflows:
   test:

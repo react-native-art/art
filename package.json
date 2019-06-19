@@ -18,7 +18,8 @@
     "android": "react-native run-android --root example",
     "ios": "react-native run-ios --project-path example/ios --scheme example",
     "flow-check": "flow check",
-    "lint": "eslint . --cache"
+    "lint": "eslint . --cache",
+    "test": "jest"
   },
   "dependencies": {
     "art": "^0.10.3",
@@ -33,6 +34,7 @@
     "@react-native-community/eslint-config": "^0.0.5",
     "eslint": "^5.16.0",
     "flow-bin": "^0.92.0",
+    "jest": "^24.8.0",
     "metro-react-native-babel-preset": "^0.54.1"
   }
 }
