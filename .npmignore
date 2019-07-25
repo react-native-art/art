@@ -1,3 +1,5 @@
 .circleci
 .github
 example
+android/build
+ios/build
