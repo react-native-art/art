@@ -24,9 +24,11 @@
   "dependencies": {
     "art": "^0.10.3",
     "invariant": "^2.2.4",
-    "prop-types": "^15.7.2",
-    "react": "16.8.3",
-    "react-native": "0.59.9"
+    "prop-types": "^15.7.2"
+  },
+  "peerDependencies": {
+    "react": "^16.8.3",
+    "react-native": "^0.59.9"
   },
   "devDependencies": {
     "@babel/core": "^7.4.5",
@@ -35,6 +37,8 @@
     "eslint": "^5.16.0",
     "flow-bin": "^0.92.0",
     "jest": "^24.8.0",
-    "metro-react-native-babel-preset": "^0.54.1"
+    "metro-react-native-babel-preset": "^0.54.1",
+    "react": "16.8.3",
+    "react-native": "0.59.9"
   }
 }
