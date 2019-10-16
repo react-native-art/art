@@ -26,13 +26,15 @@ npm install @react-native-community/art --save
 
 If using React Native >= 0.60, add the React-ART pod to your Podfile in ios folder:
 
+```js
 pod 'ReactNativeART', :path => '../node_modules/@react-native-community/art'
+```
 
 Remember to run pod install after these changes.
 
 Android does not needed any actions.
 
-If using React Native <= 0.59
+If using React Native <= 0.59, run in terminal:
 
 ```js
 react-native link @react-native-community/art
