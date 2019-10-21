@@ -24,6 +24,10 @@ npm install @react-native-community/art --save
 
 ### Mostly automatic linking
 
+For `react-native >= 0.60` ReactNativeART should be autolinked and no additional action is required.
+
+For `react-native < 0.60` you need to link ReactNative ART:
+
 ```js
 react-native link @react-native-community/art
 ```
