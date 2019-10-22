@@ -1,1 +1,1 @@
-jest.mock('Platform', () => {})
+jest.mock('Platform', () => {});
