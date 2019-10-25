@@ -65,7 +65,7 @@ project(':react-native-art').projectDir = new File(rootProject.projectDir, '../n
 ```groovy
 dependencies {
    ...
-   implementation project(':react-native-art')
+   implementation project(':@react-native-community_art')
 }
 ```
 
