@@ -11,6 +11,13 @@ import {
 const HEART_SHAPE =
   'M 10,30 A 20,20 0,0,1 50,30 A 20,20 0,0,1 90,30 Q 90,60 50,90 Q 10,60 10,30 z';
 
+const SHADOW = {
+  shadowOpacity: 1,
+  shadowColor: 'red',
+  shadowRadius: 8,
+  shadowOffset: {x: 0, y: 0},
+};
+
 export default function Heart() {
   const surfaceDimensions = Dimensions.get('window').width;
   const gradient = new RadialGradient(
@@ -42,6 +49,7 @@ export default function Heart() {
           stroke={'#00ff00'}
           fill={gradient}
           visible={true}
+          {...SHADOW}
         />
       </Group>
     </Surface>

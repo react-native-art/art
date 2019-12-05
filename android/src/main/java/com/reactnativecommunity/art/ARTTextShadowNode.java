@@ -92,6 +92,9 @@ public class ARTTextShadowNode extends ARTShapeShadowNode {
         canvas.drawTextOnPath(text, mPath, 0, 0, paint);
       }
     }
+    if (mShadowOpacity > 0) {
+      paint.setShadowLayer(mShadowRadius, mShadowOffsetX, mShadowOffsetY, mShadowColor);
+    }
     restoreCanvas(canvas);
     markUpdateSeen();
   }

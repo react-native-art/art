@@ -167,6 +167,9 @@ public class ARTShapeShadowNode extends ARTVirtualNode {
     if (mStrokeDash != null && mStrokeDash.length > 0) {
       paint.setPathEffect(new DashPathEffect(mStrokeDash, 0));
     }
+    if (mShadowOpacity > 0) {
+      paint.setShadowLayer(mShadowRadius, mShadowOffsetX, mShadowOffsetY, mShadowColor);
+    }
     return true;
   }
 
@@ -230,6 +233,9 @@ public class ARTShapeShadowNode extends ARTVirtualNode {
           // TODO(6352048): Support patterns etc.
         default:
           FLog.w(ReactConstants.TAG, "ART: Color type " + colorType + " not supported!");
+      }
+      if (mShadowOpacity > 0) {
+        paint.setShadowLayer(mShadowRadius, mShadowOffsetX, mShadowOffsetY, mShadowColor);
       }
       return true;
     }

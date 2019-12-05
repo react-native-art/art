@@ -161,6 +161,23 @@ RCT_ENUM_CONVERTER(CTTextAlignment, (@{
   }
 }
 
++ (ARTShadow)ARTShadow:(id)json
+{
+  NSArray *arr = [self NSArray:json];
+  
+  UIColor *color = [UIColor colorWithCGColor:[self CGColor:[arr objectAtIndex:0]]];
+  color = [color colorWithAlphaComponent:[[arr objectAtIndex:1] floatValue]];
+  
+  return (ARTShadow){
+    .color = color,
+    .blur = [[arr objectAtIndex:2] floatValue],
+    .offset = (CGSize){
+      .width = [[arr objectAtIndex:3] floatValue],
+      .height = [[arr objectAtIndex:4] floatValue]
+    },
+  };
+}
+
 + (CGPoint)CGPoint:(id)json offset:(NSUInteger)offset
 {
   NSArray *arr = [self NSArray:json];

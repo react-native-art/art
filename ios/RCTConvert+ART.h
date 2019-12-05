@@ -10,6 +10,7 @@
 #import <React/RCTConvert.h>
 
 #import "ARTBrush.h"
+#import "ARTShadow.h"
 #import "ARTCGFloatArray.h"
 #import "ARTTextFrame.h"
 
@@ -20,6 +21,7 @@
 + (ARTTextFrame)ARTTextFrame:(id)json;
 + (ARTCGFloatArray)ARTCGFloatArray:(id)json;
 + (ARTBrush *)ARTBrush:(id)json;
++ (ARTShadow)ARTShadow:(id)json;
 
 + (CGPoint)CGPoint:(id)json offset:(NSUInteger)offset;
 + (CGRect)CGRect:(id)json offset:(NSUInteger)offset;

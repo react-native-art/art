@@ -41,6 +41,12 @@
   super.transform = transform;
 }
 
+- (void)setShadow:(ARTShadow)shadow
+{
+  [self invalidate];
+  _shadow = shadow;
+}
+
 - (void)invalidate
 {
   id<ARTContainer> container = (id<ARTContainer>)self.superview;
@@ -55,21 +61,25 @@
   }
   if (self.opacity >= 1) {
     // Just paint at full opacity
-    CGContextSaveGState(context);
-    CGContextConcatCTM(context, self.transform);
-    CGContextSetAlpha(context, 1);
+    [self renderContentTo:context];
     [self renderLayerTo:context];
     CGContextRestoreGState(context);
     return;
   }
+  
   // This needs to be painted on a layer before being composited.
-  CGContextSaveGState(context);
-  CGContextConcatCTM(context, self.transform);
-  CGContextSetAlpha(context, self.opacity);
+  [self renderContentTo:context];
   CGContextBeginTransparencyLayer(context, NULL);
   [self renderLayerTo:context];
   CGContextEndTransparencyLayer(context);
   CGContextRestoreGState(context);
+}
+
+- (void)renderContentTo:(CGContextRef)context {
+  CGContextSaveGState(context);
+  CGContextConcatCTM(context, self.transform);
+  CGContextSetAlpha(context, self.opacity);
+  CGContextSetShadowWithColor(context, self.shadow.offset, self.shadow.blur, self.shadow.color.CGColor);
 }
 
 - (void)renderLayerTo:(CGContextRef)context
