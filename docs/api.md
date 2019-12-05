@@ -31,6 +31,7 @@ Container to combine shapes or other groups into hierarchies that can be transfo
 | :---------------: | :-----------------------------------: | :-----: |
 |  ...opacityProps  |   [`OpacityProps`](###OpacityProps)   |   ---   |
 | ...transformProps | [`TransformProps`](###TransformProps) |   ---   |
+|  ...shadowProps   |    [`ShadowProps`](###ShadowProps)    |   ---   |
 |     children      |             `React.Node`              |   ---   |
 
 ```jsx
@@ -53,7 +54,8 @@ Used to draw arbitrary vector shapes from Path. Shape implements Transform as a 
 | :---------------: | :-----------------------------------: | :-------: |
 |  ...opacityProps  |   [`OpacityProps`](###OpacityProps)   |    ---    |
 | ...transformProps | [`TransformProps`](###TransformProps) |    ---    |
-|       fill        |           `string \| Brush`           |    ---    |
+|  ...shadowProps   |    [`ShadowProps`](###ShadowProps)    |    ---    |
+|        fill        |           `string \| Brush`           |    ---    |
 |      stroke       |               `string`                |    ---    |
 |     strokeCap     |    `'butt' \| 'square' \| 'round'`    | `'round'` |
 |    strokeDash     |            `Array<number>`            |    ---    |
@@ -84,7 +86,8 @@ Text component creates a shape based on text content using native text rendering
 | :---------------: | :-----------------------------------: | :-------: |
 |  ...opacityProps  |   [`OpacityProps`](###OpacityProps)   |    ---    |
 | ...transformProps | [`TransformProps`](###TransformProps) |    ---    |
-|       fill        |           `string \| Brush`           |    ---    |
+|  ...shadowProps   |    [`ShadowProps`](###ShadowProps)    |    ---    |
+|        fill        |           `string \| Brush`           |    ---    |
 |      stroke       |               `string`                |    ---    |
 |     strokeCap     |    `'butt' \| 'square' \| 'round'`    | `'round'` |
 |    strokeDash     |            `Array<number>`            |    ---    |
@@ -353,6 +356,22 @@ function Component() {
 |  originX  |     `number`      |   ---   |
 |  originY  |     `number`      |   ---   |
 | transform | `TransformObject` |   ---   |
+
+### ShadowProps
+
+|     Prop      |         Type         | Default  |
+| :-----------: | :------------------: | :------: |
+| shadowOpacity |       `number`       |    `1`   |
+| shadowColor   |       `string`       |  `black` |
+| shadowRadius  |       `number`       |    `0`   |
+| shadowOffset  | `ShadowOffsetObject` |    ---   |
+
+### ShadowOffsetObject
+
+| Prop |   Type   | Default |
+| :--: | :------: | :-----: |
+|  y   | `number` |   `0`   |
+|  x   | `number` |   `0`   |
 
 ### Font
 
