@@ -8,8 +8,11 @@
 package com.reactnativecommunity.art;
 
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.Matrix;
 import android.graphics.Paint;
+import android.support.v4.graphics.ColorUtils;
+
 import com.facebook.react.bridge.JSApplicationIllegalArgumentException;
 import com.facebook.react.bridge.ReadableArray;
 import com.facebook.react.uimanager.DisplayMetricsHolder;
@@ -99,11 +102,19 @@ public abstract class ARTVirtualNode extends ReactShadowNodeImpl {
   @ReactProp(name = "shadow")
   public void setShadow(@Nullable ReadableArray shadowArray) {
     if (shadowArray != null) {
-      mShadowColor = shadowArray.getInt(0);
       mShadowOpacity = (float)shadowArray.getDouble(1);
       mShadowRadius = (float)shadowArray.getDouble(2);
       mShadowOffsetX = (float)shadowArray.getDouble(3);
       mShadowOffsetY = (float)shadowArray.getDouble(4);
+
+      int color = shadowArray.getInt(0);
+
+      if (mShadowOpacity < 1) {
+        color = ColorUtils.setAlphaComponent(color, (int)(mShadowOpacity * 255));
+      }
+
+      mShadowColor = color;
+
     } else {
       mShadowColor = 0;
       mShadowOpacity = 0;
