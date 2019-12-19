@@ -6,7 +6,7 @@
  */
 
 #import <React/UIView+React.h>
-
+#import "ARTShadow.h"
 /**
  * ART nodes are implemented as empty UIViews but this is just an implementation detail to fit
  * into the existing view management. They should also be shadow views and painted on a background
@@ -16,6 +16,7 @@
 @interface ARTNode : UIView
 
 @property (nonatomic, assign) CGFloat opacity;
+@property (nonatomic, assign) ARTShadow shadow;
 
 - (void)invalidate;
 - (void)renderTo:(CGContextRef)context;

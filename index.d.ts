@@ -13,6 +13,13 @@ declare module '@react-native-community/art' {
     x?: number;
     y?: number;
     visible?: boolean;
+    shadowOpacity?: number;
+    shadowColor?: string | number;
+    shadowRadius?: number;
+    shadowOffset?: {
+      x: number,
+      y: number,
+    }
   }
 
   export interface ARTGroupProps extends ARTNodeMixin {
