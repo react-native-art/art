@@ -8,8 +8,11 @@
 package com.reactnativecommunity.art;
 
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.Matrix;
 import android.graphics.Paint;
+import android.support.v4.graphics.ColorUtils;
+
 import com.facebook.react.bridge.JSApplicationIllegalArgumentException;
 import com.facebook.react.bridge.ReadableArray;
 import com.facebook.react.uimanager.DisplayMetricsHolder;
@@ -30,6 +33,11 @@ public abstract class ARTVirtualNode extends ReactShadowNodeImpl {
 
   protected float mOpacity = 1f;
   private @Nullable Matrix mMatrix = new Matrix();
+  protected int mShadowColor = 0;
+  protected float mShadowOpacity = 1;
+  protected float mShadowRadius = 0;
+  protected float mShadowOffsetX = 0;
+  protected float mShadowOffsetY = 0;
 
   protected final float mScale;
 
@@ -87,6 +95,32 @@ public abstract class ARTVirtualNode extends ReactShadowNodeImpl {
       }
     } else {
       mMatrix = null;
+    }
+    markUpdated();
+  }
+
+  @ReactProp(name = "shadow")
+  public void setShadow(@Nullable ReadableArray shadowArray) {
+    if (shadowArray != null) {
+      mShadowOpacity = (float)shadowArray.getDouble(1);
+      mShadowRadius = (float)shadowArray.getDouble(2);
+      mShadowOffsetX = (float)shadowArray.getDouble(3);
+      mShadowOffsetY = (float)shadowArray.getDouble(4);
+
+      int color = shadowArray.getInt(0);
+
+      if (mShadowOpacity < 1) {
+        color = ColorUtils.setAlphaComponent(color, (int)(mShadowOpacity * 255));
+      }
+
+      mShadowColor = color;
+
+    } else {
+      mShadowColor = 0;
+      mShadowOpacity = 0;
+      mShadowRadius = 0;
+      mShadowOffsetX = 0;
+      mShadowOffsetY = 0;
     }
     markUpdated();
   }

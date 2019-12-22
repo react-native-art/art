@@ -67,6 +67,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		09966EAF23996E3900E9C452 /* ARTShadow.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ARTShadow.h; sourceTree = "<group>"; };
 		0CF68AC11AF0540F00FF9E5C /* libART.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libART.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		0CF68ADB1AF0549300FF9E5C /* ARTCGFloatArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARTCGFloatArray.h; sourceTree = "<group>"; };
 		0CF68ADC1AF0549300FF9E5C /* ARTContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARTContainer.h; sourceTree = "<group>"; };
@@ -131,6 +132,7 @@
 		0CF68AB81AF0540F00FF9E5C = {
 			isa = PBXGroup;
 			children = (
+				09966EAF23996E3900E9C452 /* ARTShadow.h */,
 				0CF68AEA1AF0549300FF9E5C /* Brushes */,
 				0CF68AF81AF0549300FF9E5C /* ViewManagers */,
 				0CF68ADB1AF0549300FF9E5C /* ARTCGFloatArray.h */,
@@ -261,6 +263,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 			);
 			mainGroup = 0CF68AB81AF0540F00FF9E5C;
