@@ -4,6 +4,7 @@ import {StyleSheet, ScrollView, SafeAreaView} from 'react-native';
 import Heart from './components/Heart';
 import CustomShape from './components/CustomShape';
 import CustomText from './components/CustomText';
+import AnimatedCircles from './components/AnimatedCircles';
 
 export default function App() {
   return (
@@ -12,6 +13,7 @@ export default function App() {
         <CustomText />
         <Heart />
         <CustomShape />
+        <AnimatedCircles />
       </ScrollView>
     </SafeAreaView>
   );
