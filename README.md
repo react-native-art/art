@@ -114,6 +114,10 @@ import {Surface, Shape} from '@react-native-community/art';
 
 You can find API reference [here](https://github.com/react-native-community/art/tree/master/docs/api.md).
 
+## Related
+
+- [react-native-svg](https://github.com/react-native-community/react-native-svg) - Render SVGs in any React project
+
 ## License
 
 The library is released under the MIT licence. For more information see `LICENSE`.
