@@ -7,17 +7,13 @@
 
 package com.reactnativecommunity.art;
 
-import javax.annotation.Nullable;
-
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.RectF;
-import android.graphics.Region;
-
+import androidx.annotation.Nullable;
 import com.facebook.react.bridge.JSApplicationIllegalArgumentException;
 import com.facebook.react.bridge.ReadableArray;
 import com.facebook.react.uimanager.annotations.ReactProp;
-import com.facebook.react.uimanager.ReactShadowNodeImpl;
 
 /**
  * Shadow node for virtual ARTGroup view
@@ -52,8 +48,7 @@ public class ARTGroupShadowNode extends ARTVirtualNode {
           mClipping.left * mScale,
           mClipping.top * mScale,
           mClipping.right * mScale,
-          mClipping.bottom * mScale,
-          Region.Op.REPLACE);
+          mClipping.bottom * mScale);
       }
 
       for (int i = 0; i < getChildCount(); i++) {

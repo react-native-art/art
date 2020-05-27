@@ -51,7 +51,7 @@ public class ARTShapeShadowNode extends ARTVirtualNode {
   private static final int COLOR_TYPE_PATTERN = 3;
 
   protected @Nullable Path mPath;
-  private @Nullable String mStrokeColor;
+  private @Nullable float[] mStrokeColor;
   private @Nullable float[] mBrushData;
   private @Nullable float[] mStrokeDash;
   private float mStrokeWidth = 1;
@@ -68,8 +68,8 @@ public class ARTShapeShadowNode extends ARTVirtualNode {
   }
 
   @ReactProp(name = "stroke")
-  public void setStroke(@Nullable String strokeColors) {
-    mStrokeColor = strokeColors;
+  public void setStroke(@Nullable ReadableArray strokeColors) {
+    mStrokeColor = PropHelper.toFloatArray(strokeColors);
     markUpdated();
   }
 
@@ -124,11 +124,11 @@ public class ARTShapeShadowNode extends ARTVirtualNode {
   }
 
   /**
-   * Sets up {@link #mPaint} according to the props set on a shadow view. Returns {@code true}
+   * Sets up {@param #paint} according to the props set on a shadow view. Returns {@code true}
    * if the stroke should be drawn, {@code false} if not.
    */
   protected boolean setupStrokePaint(Paint paint, float opacity) {
-    if (mStrokeWidth == 0 || mStrokeColor == null) {
+    if (mStrokeWidth == 0 || mStrokeColor == null || mStrokeColor.length == 0) {
       return false;
     }
     paint.reset();
@@ -163,7 +163,11 @@ public class ARTShapeShadowNode extends ARTVirtualNode {
             "strokeJoin " + mStrokeJoin + " unrecognized");
     }
     paint.setStrokeWidth(mStrokeWidth * mScale);
-    paint.setColor(Color.parseColor(mStrokeColor));
+    paint.setARGB(
+      (int) (mStrokeColor.length > 3 ? mStrokeColor[3] * opacity * 255 : opacity * 255),
+      (int) (mStrokeColor[0] * 255),
+      (int) (mStrokeColor[1] * 255),
+      (int) (mStrokeColor[2] * 255));
     if (mStrokeDash != null && mStrokeDash.length > 0) {
       paint.setPathEffect(new DashPathEffect(mStrokeDash, 0));
     }
@@ -174,7 +178,7 @@ public class ARTShapeShadowNode extends ARTVirtualNode {
   }
 
   /**
-   * Sets up {@link #mPaint} according to the props set on a shadow view. Returns {@code true}
+   * Sets up {@param #paint} according to the props set on a shadow view. Returns {@code true}
    * if the fill should be drawn, {@code false} if not.
    */
   protected boolean setupFillPaint(Paint paint, float opacity) {
