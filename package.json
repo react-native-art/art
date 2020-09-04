@@ -13,6 +13,11 @@
     "react-native-community",
     "art"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/react-native-community/art.git",
+    "baseUrl": "https://github.com/react-native-community/art"
+  },
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
     "android": "react-native run-android --root example",
