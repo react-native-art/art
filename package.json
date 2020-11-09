@@ -2,8 +2,8 @@
   "name": "@react-native-community/art",
   "version": "1.2.0",
   "license": "MIT",
-  "author": "@react-native-community",
-  "homepage": "https://github.com/react-native-community/react-native-art",
+  "author": "react-native-art",
+  "homepage": "https://github.com/react-native-art/react-native-art",
   "description": "React Native module that allows you to draw vector graphics",
   "main": "./lib/index.js",
   "keywords": [
@@ -15,8 +15,8 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/react-native-community/art.git",
-    "baseUrl": "https://github.com/react-native-community/art"
+    "url": "git+https://github.com/react-native-art/art.git",
+    "baseUrl": "https://github.com/react-native-art/art"
   },
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
