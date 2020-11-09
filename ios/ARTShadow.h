@@ -8,5 +8,6 @@
 typedef struct {
   CGSize offset;
   CGFloat blur;
-  UIColor* color;
+  CGFloat alpha;
+  CGFloat color;
 } ARTShadow;
