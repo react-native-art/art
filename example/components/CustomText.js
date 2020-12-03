@@ -19,7 +19,6 @@ export default function CustomText() {
         <Text
           font={'18px "Helvetica Neue", "Helvetica", Arial'}
           fill="#000000"
-          stroke="#000000"
           {...SHADOW}>
           React Native Community
         </Text>
