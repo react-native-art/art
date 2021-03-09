@@ -1,0 +1,10 @@
+import "ARTNode.idl";
+import "ARTContainer.idl";
+
+namespace ART{
+    [default_interface]
+    unsealed runtimeclass ARTGroup: Windows.UI.Xaml.FrameworkElement, ARTNode, ARTContainer {
+        ARTGroup(Microsoft.ReactNative.IReactContext context);
+        void UpdateProperties(Microsoft.ReactNative.IJSValueReader reader);
+    };
+}
