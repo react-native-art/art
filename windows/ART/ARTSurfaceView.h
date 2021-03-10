@@ -23,6 +23,11 @@ namespace winrt::ART::implementation
             m_reactContext = value;
         };
 
+        static winrt::Windows::Foundation::Collections::
+            IMapView<winrt::hstring, winrt::Microsoft::ReactNative::ViewManagerPropertyType>
+            NativeProps() noexcept;
+        void UpdateProperties(winrt::Microsoft::ReactNative::IJSValueReader const& propertyMapReader) noexcept;
+
         void addChild(Windows::UI::Xaml::UIElement const& child, int64_t index);
         void removeAllChildren();
         void removeChildAt(int64_t index);
@@ -31,6 +36,8 @@ namespace winrt::ART::implementation
     private:
         Microsoft::ReactNative::IReactContext m_reactContext{ nullptr };
         IVector<Windows::UI::Xaml::UIElement> m_children{ winrt::single_threaded_vector<Windows::UI::Xaml::UIElement>() };
+
+        std::optional<Windows::UI::Color> m_backgroundColor;
 
         Microsoft::Graphics::Canvas::UI::Xaml::CanvasControl mCanvasControl;
         void OnCanvasDraw(Microsoft::Graphics::Canvas::UI::Xaml::CanvasControl const&, Microsoft::Graphics::Canvas::UI::Xaml::CanvasDrawEventArgs const&);

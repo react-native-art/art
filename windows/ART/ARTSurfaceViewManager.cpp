@@ -50,12 +50,10 @@ namespace winrt::ART::implementation
         FrameworkElement const& view,
         IJSValueReader const& propertyMapReader) noexcept
     {
-        /*
-        if (auto module = view.try_as<winrt::ART::ARTModule>())
+        if (auto module = view.try_as<winrt::ART::ARTSurfaceView>())
         {
             module.UpdateProperties(propertyMapReader);
         }
-        */
     }
 
     // IViewManagerWithChildren

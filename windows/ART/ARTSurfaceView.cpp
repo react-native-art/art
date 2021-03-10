@@ -1,6 +1,7 @@
 #include "pch.h"
 #include "ARTSurfaceView.h"
 #include "ARTSurfaceView.g.cpp"
+#include "JSValueXaml.h"
 
 namespace winrt
 {
@@ -37,6 +38,35 @@ namespace winrt::ART::implementation
         mCanvasControl.Invalidate();
     }
 
+    winrt::Windows::Foundation::Collections::IMapView<winrt::hstring, winrt::Microsoft::ReactNative::ViewManagerPropertyType> ARTSurfaceView::NativeProps() noexcept
+    {
+        auto nativeProps = winrt::single_threaded_map<hstring, ViewManagerPropertyType>();
+        //ARTSurfaceView
+        nativeProps.Insert(L"backgroundColor", ViewManagerPropertyType::Color);
+
+        return nativeProps.GetView();
+    }
+
+    void ARTSurfaceView::UpdateProperties(winrt::Microsoft::ReactNative::IJSValueReader const& propertyMapReader) noexcept
+    {
+        const JSValueObject& propertyMap = JSValue::ReadObjectFrom(propertyMapReader);
+        for (auto const& pair : propertyMap)
+        {
+            auto const& propertyName = pair.first;
+            auto const& propertyValue = pair.second;
+            if (propertyName == "backgroundColor")
+            {
+                if (!propertyValue.IsNull())
+                {
+                    m_backgroundColor = propertyValue.To<Color>();
+                } else
+                {
+                    m_backgroundColor.reset();
+                }
+            }
+        }
+    }
+
     void ARTSurfaceView::addChild(Windows::UI::Xaml::UIElement const& child, int64_t index)
     {
         m_children.InsertAt(index, child);
@@ -64,6 +94,14 @@ namespace winrt::ART::implementation
     void ARTSurfaceView::OnCanvasDraw(CanvasControl const& canvas, CanvasDrawEventArgs const& args)
     {
         auto session = args.DrawingSession();
+        if (m_backgroundColor.has_value())
+        {
+            session.Clear(m_backgroundColor.value());
+        } else
+        {
+            session.Clear(Colors::Transparent());
+        }
+
         for (const auto& node : m_children)
         {
             if (auto const& art_node = node.try_as<ARTNode>())
