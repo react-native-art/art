@@ -1,6 +1,11 @@
 #include "pch.h"
 #include "PropHelper.h"
 
+namespace winrt
+{
+  using namespace Windows::UI;
+} // namespace winrt
+
 std::vector<float> winrt::ART::implementation::PropHelper::toFloatArray(winrt::Microsoft::ReactNative::JSValueArray const& value)
 {
     std::vector<float> result(value.size());

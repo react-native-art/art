@@ -35,7 +35,7 @@ namespace winrt::ART::implementation
 
     private:
         Microsoft::ReactNative::IReactContext m_reactContext{ nullptr };
-        IVector<Windows::UI::Xaml::UIElement> m_children{ winrt::single_threaded_vector<Windows::UI::Xaml::UIElement>() };
+        winrt::Windows::Foundation::Collections::IVector<Windows::UI::Xaml::UIElement> m_children{ winrt::single_threaded_vector<Windows::UI::Xaml::UIElement>() };
 
         std::optional<Windows::UI::Color> m_backgroundColor;
 

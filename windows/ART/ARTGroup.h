@@ -36,7 +36,7 @@ namespace winrt::ART::implementation
         Microsoft::ReactNative::IReactContext m_reactContext{ nullptr };
 
         ARTContainer m_parent{ nullptr };
-        IVector<Windows::UI::Xaml::UIElement> m_children{ winrt::single_threaded_vector<Windows::UI::Xaml::UIElement>() };
+        winrt::Windows::Foundation::Collections::IVector<Windows::UI::Xaml::UIElement> m_children{ winrt::single_threaded_vector<Windows::UI::Xaml::UIElement>() };
 
         float m_opacity = 1;
         std::optional<Windows::Foundation::Numerics::float3x2> m_transform;
