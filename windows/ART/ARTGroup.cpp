@@ -25,7 +25,10 @@ namespace winrt::ART::implementation
     
     void ARTGroup::invalidate()
     {
-        m_parent.invalidate();
+        if(m_parent != nullptr)
+        {
+            m_parent.invalidate();
+        }
     }
 
     void ARTGroup::renderTo(Microsoft::Graphics::Canvas::CanvasDrawingSession const& session)
@@ -138,6 +141,7 @@ namespace winrt::ART::implementation
                 }
             }
         }
+        invalidate();
     }
 
     std::optional<Rect> ARTGroup::createClipping(std::vector<float> data)
@@ -152,17 +156,32 @@ namespace winrt::ART::implementation
 
     void ARTGroup::addChild(UIElement const& child, int64_t index)
     {
-        m_children.InsertAt(index, child);
+        m_children.InsertAt((uint32_t)index, child);
+        if (auto const& ARTchild = child.try_as<ARTNode>())
+        {
+            ARTchild.ARTParent(*this);
+        }
     }
 
     void ARTGroup::removeAllChildren()
     {
+        for (auto const& child : m_children)
+        {
+            if (auto const& ARTchild = child.try_as<ARTNode>())
+            {
+                ARTchild.ARTParent(nullptr);
+            }
+        }
         m_children.Clear();
     }
 
     void ARTGroup::removeChildAt(int64_t index)
     {
-        m_children.RemoveAt(index);
+        if (auto const& ARTchild = m_children.GetAt((uint32_t)index).try_as<ARTNode>())
+        {
+            ARTchild.ARTParent(nullptr);
+        }
+        m_children.RemoveAt((uint32_t)index);
     }
 
     void ARTGroup::replaceChild(UIElement const& oldChild, UIElement const& newChild)
@@ -171,6 +190,14 @@ namespace winrt::ART::implementation
         if (m_children.IndexOf(oldChild, index))
         {
             m_children.SetAt(index, newChild);
+            if (auto const& ARTchild = newChild.try_as<ARTNode>())
+            {
+                ARTchild.ARTParent(*this);
+            }
+            if (auto const& ARTchild = oldChild.try_as<ARTNode>())
+            {
+                ARTchild.ARTParent(nullptr);
+            }
         }
     }
 

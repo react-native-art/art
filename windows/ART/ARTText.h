@@ -15,6 +15,7 @@ namespace winrt::ART::implementation
     {
     public:
         ARTText(Microsoft::ReactNative::IReactContext const& reactContext);
+        void invalidate();
 
         void renderTo(Microsoft::Graphics::Canvas::CanvasDrawingSession const& session);
 

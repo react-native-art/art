@@ -65,21 +65,37 @@ namespace winrt::ART::implementation
                 }
             }
         }
+        invalidate();
     }
 
     void ARTSurfaceView::addChild(Windows::UI::Xaml::UIElement const& child, int64_t index)
     {
-        m_children.InsertAt(index, child);
+        m_children.InsertAt((uint32_t)index, child);
+        if (auto const& ARTchild = child.try_as<ARTNode>())
+        {
+            ARTchild.ARTParent(*this);
+        }
     }
 
     void ARTSurfaceView::removeAllChildren()
     {
+        for (auto const& child : m_children)
+        {
+            if (auto const& ARTchild = child.try_as<ARTNode>())
+            {
+                ARTchild.ARTParent(nullptr);
+            }
+        }
         m_children.Clear();
     }
 
     void ARTSurfaceView::removeChildAt(int64_t index)
     {
-        m_children.RemoveAt(index);
+        if (auto const& ARTchild = m_children.GetAt((uint32_t)index).try_as<ARTNode>())
+        {
+            ARTchild.ARTParent(nullptr);
+        }
+        m_children.RemoveAt((uint32_t)index);
     }
 
     void ARTSurfaceView::replaceChild(Windows::UI::Xaml::UIElement const& oldChild, Windows::UI::Xaml::UIElement const& newChild)
@@ -88,6 +104,14 @@ namespace winrt::ART::implementation
         if (m_children.IndexOf(oldChild, index))
         {
             m_children.SetAt(index, newChild);
+            if (auto const& ARTchild = newChild.try_as<ARTNode>())
+            {
+                ARTchild.ARTParent(*this);
+            }
+            if (auto const& ARTchild = oldChild.try_as<ARTNode>())
+            {
+                ARTchild.ARTParent(nullptr);
+            }
         }
     }
 

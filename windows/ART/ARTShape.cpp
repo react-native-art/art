@@ -29,6 +29,14 @@ namespace winrt::ART::implementation
         m_reactContext = reactContext;
     }
 
+    void ARTShape::invalidate()
+    {
+        if (m_parent != nullptr)
+        {
+            m_parent.invalidate();
+        }
+    }
+
     void ARTShape::renderTo(Microsoft::Graphics::Canvas::CanvasDrawingSession const& session)
     {
         
@@ -365,8 +373,8 @@ namespace winrt::ART::implementation
                     m_strokeJoin = JOIN_ROUND;
                 }
             }
-
         }
+        invalidate();
     }
 
     Microsoft::Graphics::Canvas::Geometry::CanvasGeometry ARTShape::createPath(std::vector<float> data)

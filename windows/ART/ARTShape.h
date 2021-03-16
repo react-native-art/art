@@ -12,7 +12,8 @@ namespace winrt::ART::implementation
     {
     public:
         ARTShape(Microsoft::ReactNative::IReactContext const& reactContext);
-        
+        void invalidate();
+
         void renderTo(Microsoft::Graphics::Canvas::CanvasDrawingSession const& session);
 
         static winrt::Windows::Foundation::Collections::

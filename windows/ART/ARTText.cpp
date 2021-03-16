@@ -29,6 +29,13 @@ namespace winrt::ART::implementation
     {
         m_reactContext = reactContext;
     }
+    void ARTText::invalidate()
+    {
+        if (m_parent != nullptr)
+        {
+            m_parent.invalidate();
+        }
+    }
 
     void ARTText::renderTo(Microsoft::Graphics::Canvas::CanvasDrawingSession const& session)
     {
@@ -451,8 +458,8 @@ namespace winrt::ART::implementation
                     m_alignment = TEXT_ALIGNMENT_LEFT;
                 }
             }
-
         }
+        invalidate();
     }
 
 }
