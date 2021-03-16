@@ -22,6 +22,8 @@
     <ClCompile Include="ARTGroupViewManager.cpp" />
     <ClCompile Include="ARTShapeViewManager.cpp" />
     <ClCompile Include="PropHelper.cpp" />
+    <ClCompile Include="ARTText.cpp" />
+    <ClCompile Include="ARTTextViewManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />
@@ -35,6 +37,8 @@
     <ClInclude Include="ARTGroupViewManager.h" />
     <ClInclude Include="ARTShapeViewManager.h" />
     <ClInclude Include="PropHelper.h" />
+    <ClInclude Include="ARTText.h" />
+    <ClInclude Include="ARTTextViewManager.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ART.def" />
@@ -51,5 +55,6 @@
     <Midl Include="ARTContainer.idl" />
     <Midl Include="ARTGroup.idl" />
     <Midl Include="ARTShape.idl" />
+    <Midl Include="ARTText.idl" />
   </ItemGroup>
 </Project>

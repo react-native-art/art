@@ -38,24 +38,24 @@ std::optional<winrt::Windows::UI::Color> winrt::ART::implementation::PropHelper:
     if (color[0] == '#' && color.size() == 7)
     {
         winrt::Windows::UI::Color result;
-        result.R = std::stoi(color.substr(1, 2), 0, 16);
-        result.G = std::stoi(color.substr(3, 2), 0, 16);
-        result.B = std::stoi(color.substr(5, 2), 0, 16);
+        result.R = (uint8_t)std::stoi(color.substr(1, 2), 0, 16);
+        result.G = (uint8_t)std::stoi(color.substr(3, 2), 0, 16);
+        result.B = (uint8_t)std::stoi(color.substr(5, 2), 0, 16);
         result.A = 0xff;
         return result;
     } else if (color[0] == '#' && color.size() == 9)
     {
         winrt::Windows::UI::Color result;
-        result.A = std::stoi(color.substr(1, 2), 0, 16);
-        result.R = std::stoi(color.substr(3, 2), 0, 16);
-        result.G = std::stoi(color.substr(5, 2), 0, 16);
-        result.B = std::stoi(color.substr(7, 2), 0, 16);
+        result.A = (uint8_t)std::stoi(color.substr(1, 2), 0, 16);
+        result.R = (uint8_t)std::stoi(color.substr(3, 2), 0, 16);
+        result.G = (uint8_t)std::stoi(color.substr(5, 2), 0, 16);
+        result.B = (uint8_t)std::stoi(color.substr(7, 2), 0, 16);
         return result;
     } else
     {
         // lower case
         std::transform(color.begin(), color.end(), color.begin(),
-            [](unsigned char c) { return std::tolower(c); });
+            [](unsigned char c) { return (unsigned char)std::tolower((int)c); });
 
         // map all known names into correspondent color
         if (color == "aliceblue") return Colors::AliceBlue();

@@ -125,6 +125,10 @@
       <DependentUpon>ARTSurfaceView.idl</DependentUpon>
     </ClInclude>
     <ClInclude Include="ARTSurfaceViewManager.h" />
+    <ClInclude Include="ARTText.h">
+      <DependentUpon>ARTText.idl</DependentUpon>
+    </ClInclude>
+    <ClInclude Include="ARTTextViewManager.h" />
     <ClInclude Include="PropHelper.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="ARTViewManager.h" />
@@ -147,6 +151,10 @@
     <ClCompile Include="ARTSurfaceView.cpp">
       <DependentUpon>ARTSurfaceView.idl</DependentUpon>
     </ClCompile>
+    <ClCompile Include="ARTText.cpp">
+      <DependentUpon>ARTText.idl</DependentUpon>
+    </ClCompile>
+    <ClCompile Include="ARTTextViewManager.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>
     </ClCompile>
@@ -165,6 +173,7 @@
     <Midl Include="ARTGroup.idl" />
     <Midl Include="ARTNode.idl" />
     <Midl Include="ARTSurfaceView.idl" />
+    <Midl Include="ARTText.idl" />
     <Midl Include="ReactPackageProvider.idl" />
     <Midl Include="ARTContainer.idl" />
     <Midl Include="ARTShape.idl" />
