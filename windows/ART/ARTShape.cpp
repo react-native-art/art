@@ -3,7 +3,8 @@
 #include "ARTShape.g.cpp"
 #include "PropHelper.h"
 
-#define PI_VALUE (3.14159265358979323846f)
+constexpr float XM_PI = 3.141592654f;
+constexpr float XM_2PI = 6.283185307f;
 
 namespace winrt
 {
@@ -394,6 +395,7 @@ namespace winrt::ART::implementation
                 float a = data[i++];
                 float b = data[i++];
                 pathBuilder.BeginFigure(a, b);
+                figurestarted = true;
             }
                 break;
             case PATH_TYPE_CLOSE:
@@ -429,11 +431,45 @@ namespace winrt::ART::implementation
                 float endAngle = data[i++];
                 float clockwise = data[i++];
                 float sweepAngle = endAngle - startAngle;
-                if (clockwise != 0.0f)
+                bool counterClockwise = !(clockwise == 1.0f);
+
+                // If the arc is a full circle, we divide it into two half circles.
+                bool isFullCircle = fabs(sweepAngle) >= XM_2PI - FLT_EPSILON;
+
+                float2 centerPoint = float2(centerx, centery);
+                float2 startPoint = centerPoint + Windows::Foundation::Numerics::transform(float2::unit_x(), Windows::Foundation::Numerics::make_float3x2_rotation(startAngle)) * radius;
+                float2 endPoint = centerPoint + Windows::Foundation::Numerics::transform(float2::unit_x(), Windows::Foundation::Numerics::make_float3x2_rotation(endAngle)) * radius;
+
+                if (isFullCircle)
                 {
-                    sweepAngle = -1 * (2 * PI_VALUE - sweepAngle);
+                    endPoint = centerPoint + Windows::Foundation::Numerics::transform(float2::unit_x(), Windows::Foundation::Numerics::make_float3x2_rotation(endAngle + XM_PI)) * radius;
                 }
-                pathBuilder.AddArc(float2(centerx, centery), radius, radius, startAngle, sweepAngle);
+                pathBuilder.AddLine(startPoint);
+                /*if (figurestarted) pathBuilder.EndFigure(CanvasFigureLoop::Open);
+                pathBuilder.BeginFigure(startPoint);*/
+
+                pathBuilder.AddArc(
+                    endPoint,
+                    radius,
+                    radius,
+                    0,
+                    counterClockwise ? CanvasSweepDirection::CounterClockwise : CanvasSweepDirection::Clockwise,
+                    (fabs(sweepAngle) > XM_PI) ? CanvasArcSize::Large : CanvasArcSize::Small
+                    );
+
+                if (isFullCircle)
+                {
+                    pathBuilder.AddArc(
+                        startPoint,
+                        radius,
+                        radius,
+                        0,
+                        counterClockwise ? CanvasSweepDirection::CounterClockwise : CanvasSweepDirection::Clockwise,
+                        (fabs(sweepAngle) > XM_PI) ? CanvasArcSize::Large : CanvasArcSize::Small
+                    );
+
+                }
+
             }
                 break;
             default:
