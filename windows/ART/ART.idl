@@ -1,8 +1,0 @@
-namespace ART {
-    [default_interface]
-    runtimeclass ARTModule : Windows.UI.Xaml.Controls.TextBox {
-        ARTModule(Microsoft.ReactNative.IReactContext context);
-        void UpdateProperties(Microsoft.ReactNative.IJSValueReader reader);
-        void DispatchCommand(String commandId, Microsoft.ReactNative.IJSValueReader commandArgsReader);
-    };
-}

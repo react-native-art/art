@@ -14,7 +14,6 @@
     <ClCompile Include="$(GeneratedFilesDir)module.g.cpp" />
     <ClCompile Include="ReactPackageProvider.cpp" />
     <ClCompile Include="ART.cpp" />
-    <ClCompile Include="ARTViewManager.cpp" />
     <ClCompile Include="ARTSurfaceView.cpp" />
     <ClCompile Include="ARTGroup.cpp" />
     <ClCompile Include="ARTShape.cpp" />
@@ -29,7 +28,6 @@
     <ClInclude Include="pch.h" />
     <ClInclude Include="ReactPackageProvider.h" />
     <ClInclude Include="ART.h" />
-    <ClInclude Include="ARTViewManager.h" />
     <ClInclude Include="ARTSurfaceView.h" />
     <ClInclude Include="ARTGroup.h" />
     <ClInclude Include="ARTShape.h" />
@@ -49,7 +47,6 @@
   </ItemGroup>
   <ItemGroup>
     <Midl Include="ReactPackageProvider.idl" />
-    <Midl Include="ART.idl" />
     <Midl Include="ARTNode.idl" />
     <Midl Include="ARTSurfaceView.idl" />
     <Midl Include="ARTContainer.idl" />

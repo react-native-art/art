@@ -131,12 +131,8 @@
     <ClInclude Include="ARTTextViewManager.h" />
     <ClInclude Include="PropHelper.h" />
     <ClInclude Include="pch.h" />
-    <ClInclude Include="ARTViewManager.h" />
     <ClInclude Include="ReactPackageProvider.h">
       <DependentUpon>ReactPackageProvider.idl</DependentUpon>
-    </ClInclude>
-    <ClInclude Include="ART.h">
-      <DependentUpon>ART.idl</DependentUpon>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -158,13 +154,9 @@
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="ARTViewManager.cpp" />
     <ClCompile Include="PropHelper.cpp" />
     <ClCompile Include="ReactPackageProvider.cpp">
       <DependentUpon>ReactPackageProvider.idl</DependentUpon>
-    </ClCompile>
-    <ClCompile Include="ART.cpp">
-      <DependentUpon>ART.idl</DependentUpon>
     </ClCompile>
     <ClCompile Include="$(GeneratedFilesDir)module.g.cpp" />
     <ClCompile Include="ARTSurfaceViewManager.cpp" />
@@ -177,9 +169,6 @@
     <Midl Include="ReactPackageProvider.idl" />
     <Midl Include="ARTContainer.idl" />
     <Midl Include="ARTShape.idl" />
-  </ItemGroup>
-  <ItemGroup>
-    <Midl Include="ART.idl" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
