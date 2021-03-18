@@ -7,7 +7,7 @@
   IgnorableNamespaces="uap mp">
 
   <Identity
-    Name="621c2b47-a4ba-416b-affc-ab5d6fd2ff85"
+    Name="RNArtExample"
     Publisher="CN=jaime"
     Version="1.0.0.0" />
 
