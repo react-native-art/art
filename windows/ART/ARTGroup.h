@@ -14,7 +14,7 @@ namespace winrt::ART::implementation
         ARTGroup(Microsoft::ReactNative::IReactContext const& reactContext);
         void invalidate();
 
-        void renderTo(Microsoft::Graphics::Canvas::CanvasDrawingSession const& session);
+        void renderTo(Windows::Foundation::IInspectable const& session);
 
         Microsoft::ReactNative::IReactContext RNContext() { return m_reactContext; }
         void RNContext(Microsoft::ReactNative::IReactContext const& value) { m_reactContext = value; };
@@ -44,7 +44,7 @@ namespace winrt::ART::implementation
         std::optional<Windows::Foundation::Rect> m_clipping;
         std::optional<Windows::Foundation::Rect> createClipping(std::vector<float> data);
 
-        void renderLayerTo(Microsoft::Graphics::Canvas::CanvasDrawingSession const& session);
+        void renderLayerTo(Microsoft::Graphics::Canvas::ICanvasDrawingSession const& session);
 
     };
 }

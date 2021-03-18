@@ -17,7 +17,7 @@ namespace winrt::ART::implementation
         ARTText(Microsoft::ReactNative::IReactContext const& reactContext);
         void invalidate();
 
-        void renderTo(Microsoft::Graphics::Canvas::CanvasDrawingSession const& session);
+        void renderTo(Windows::Foundation::IInspectable const& session);
 
         static winrt::Windows::Foundation::Collections::
             IMapView<winrt::hstring, winrt::Microsoft::ReactNative::ViewManagerPropertyType>
@@ -82,7 +82,7 @@ namespace winrt::ART::implementation
         static const int TEXT_ALIGNMENT_LEFT = 0;
         static const int TEXT_ALIGNMENT_RIGHT = 1;
 
-        void renderLayerTo(Microsoft::Graphics::Canvas::CanvasDrawingSession const& session);
+        void renderLayerTo(Microsoft::Graphics::Canvas::ICanvasDrawingSession const& session);
         bool setupFillPaint(Microsoft::Graphics::Canvas::Brushes::ICanvasBrush& brush);
         bool setupStrokePaint(Microsoft::Graphics::Canvas::Brushes::ICanvasBrush& brush, Microsoft::Graphics::Canvas::Geometry::CanvasStrokeStyle& style);
         bool applyTextPropertiesToPaint(Microsoft::Graphics::Canvas::Text::ICanvasTextFormat& textFormat);

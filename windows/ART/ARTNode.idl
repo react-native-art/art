@@ -5,6 +5,6 @@ namespace ART{
     interface ARTNode {
         ARTContainer ARTParent;
         Microsoft.ReactNative.IReactContext RNContext;
-        void renderTo(Microsoft.Graphics.Canvas.CanvasDrawingSession session);
+        void renderTo(IInspectable session);
     };
 }

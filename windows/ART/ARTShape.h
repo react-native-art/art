@@ -14,7 +14,7 @@ namespace winrt::ART::implementation
         ARTShape(Microsoft::ReactNative::IReactContext const& reactContext);
         void invalidate();
 
-        void renderTo(Microsoft::Graphics::Canvas::CanvasDrawingSession const& session);
+        void renderTo(Windows::Foundation::IInspectable const& session);
 
         static winrt::Windows::Foundation::Collections::
             IMapView<winrt::hstring, winrt::Microsoft::ReactNative::ViewManagerPropertyType>
@@ -63,7 +63,7 @@ namespace winrt::ART::implementation
         static const int COLOR_TYPE_PATTERN = 3;
 
         Microsoft::Graphics::Canvas::Geometry::CanvasGeometry createPath(std::vector<float> data);
-        void renderLayerTo(Microsoft::Graphics::Canvas::CanvasDrawingSession const& session);
+        void renderLayerTo(Microsoft::Graphics::Canvas::ICanvasDrawingSession const& session);
         bool setupFillPaint(Microsoft::Graphics::Canvas::Brushes::ICanvasBrush& brush);
         bool setupStrokePaint(Microsoft::Graphics::Canvas::Brushes::ICanvasBrush& brush, Microsoft::Graphics::Canvas::Geometry::CanvasStrokeStyle& style);
 

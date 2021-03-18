@@ -37,26 +37,28 @@ namespace winrt::ART::implementation
         }
     }
 
-    void ARTText::renderTo(Microsoft::Graphics::Canvas::CanvasDrawingSession const& session)
+    void ARTText::renderTo(Windows::Foundation::IInspectable const& session)
     {
-
-        if (m_opacity <= 0)
+        if (auto const& drawingSession = session.try_as< Microsoft::Graphics::Canvas::ICanvasDrawingSession>())
         {
-            // Nothing to paint
-            return;
+            if (m_opacity <= 0)
+            {
+                // Nothing to paint
+                return;
+            }
+            if (m_opacity >= 1)
+            {
+                // Paint at full opacity
+                renderLayerTo(drawingSession);
+                return;
+            }
+            // Create a layer with specified opacity
+            const auto& layer = drawingSession.CreateLayer(m_opacity);
+            renderLayerTo(drawingSession);
         }
-        if (m_opacity >= 1)
-        {
-            // Paint at full opacity
-            renderLayerTo(session);
-            return;
-        }
-        // Create a layer with specified opacity
-        const auto& layer = session.CreateLayer(m_opacity);
-        renderLayerTo(session);
     }
 
-    void ARTText::renderLayerTo(Microsoft::Graphics::Canvas::CanvasDrawingSession const& session)
+    void ARTText::renderLayerTo(Microsoft::Graphics::Canvas::ICanvasDrawingSession const& session)
     {
         auto current_transform = session.Transform();
 

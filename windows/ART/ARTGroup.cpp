@@ -31,50 +31,52 @@ namespace winrt::ART::implementation
         }
     }
 
-    void ARTGroup::renderTo(Microsoft::Graphics::Canvas::CanvasDrawingSession const& session)
+    void ARTGroup::renderTo(Windows::Foundation::IInspectable const& session)
     {
-        auto current_transform = session.Transform();
+        if (auto const& drawingSession = session.try_as< Microsoft::Graphics::Canvas::ICanvasDrawingSession>())
+        {
+            auto current_transform = drawingSession.Transform();
 
-        if (m_transform.has_value())
-        {
-            session.Transform(current_transform * m_transform.value());
-        }
-
-        if (m_opacity <= 0)
-        {
-            // Nothing to paint
-            return;
-        } else if (m_opacity >= 1)
-        {
-            // Paint at full opacity
-            if (m_clipping.has_value())
+            if (m_transform.has_value())
             {
-                const auto& layer = session.CreateLayer(1.0f, m_clipping.value());
-                renderLayerTo(session);
+                drawingSession.Transform(current_transform * m_transform.value());
+            }
+
+            if (m_opacity <= 0)
+            {
+                // Nothing to paint
+                return;
+            } else if (m_opacity >= 1)
+            {
+                // Paint at full opacity
+                if (m_clipping.has_value())
+                {
+                    const auto& layer = drawingSession.CreateLayer(1.0f, m_clipping.value());
+                    renderLayerTo(drawingSession);
+                } else
+                {
+                    renderLayerTo(drawingSession);
+                }
+
+                return;
             } else
             {
-                renderLayerTo(session);
+                if (m_clipping.has_value())
+                {
+                    const auto& layer = drawingSession.CreateLayer(m_opacity, m_clipping.value());
+                    renderLayerTo(drawingSession);
+                } else
+                {
+                    const auto& layer = drawingSession.CreateLayer(m_opacity);
+                    renderLayerTo(drawingSession);
+                }
             }
-            
-            return;
-        } else
-        {
-            if (m_clipping.has_value())
-            {
-                const auto& layer = session.CreateLayer(m_opacity, m_clipping.value());
-                renderLayerTo(session);
-            } else
-            {
-                const auto& layer = session.CreateLayer(m_opacity);
-                renderLayerTo(session);
-            }
+
+            drawingSession.Transform(current_transform);
         }
-
-        session.Transform(current_transform);
-
     }
 
-    void ARTGroup::renderLayerTo(Microsoft::Graphics::Canvas::CanvasDrawingSession const& session)
+    void ARTGroup::renderLayerTo(Microsoft::Graphics::Canvas::ICanvasDrawingSession const& session)
     {
         for (const auto &node : m_children)
         {
