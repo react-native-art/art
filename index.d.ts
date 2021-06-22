@@ -236,12 +236,6 @@ declare module '@react-native-community/art' {
     ): LinearGradientStatic;
   }
 
-  //////////////////////////////////////////////////////////////////////////
-  //
-  //  R E - E X P O R T S
-  //
-  //////////////////////////////////////////////////////////////////////////
-
   export var Shape: ShapeStatic;
   export type Shape = ShapeStatic;
   export var Surface: SurfaceStatic;
