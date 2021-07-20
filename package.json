@@ -39,6 +39,6 @@
     "jest": "^24.8.0",
     "metro-react-native-babel-preset": "^0.54.1",
     "react": "16.8.3",
-    "react-native": "0.59.9"
+    "react-native": "0.62.3"
   }
 }
