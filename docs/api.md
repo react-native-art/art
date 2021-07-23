@@ -257,10 +257,12 @@ Creates a radial gradient fill.
 ```jsx
 function RadialGradient({
   stops: GradientStops,
-  x1?: number,
-  y1?: number,
-  x2?: number,
-  y2?: number,
+  fx?: number,
+  fy?: number,
+  rx?: number,
+  ry?: number,
+  cx?: number,
+  cy?: number,
 }): Brush;
 ```
 
