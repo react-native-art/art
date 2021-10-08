@@ -1,3 +1,4 @@
+# **DEPRECATED** - This package is deprecated. If you need a similar package please consider using [react-native-svg](https://github.com/react-native-svg/react-native-svg).
 # `@react-native-community/art`
 
 [![CircleCI][circle-ci-badge]][circle-ci]
