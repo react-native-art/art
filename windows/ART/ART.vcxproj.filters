@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Resources">
+      <UniqueIdentifier>accd3aa8-1ba0-4223-9bbe-0c431709210b</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tga;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Generated Files">
+      <UniqueIdentifier>{926ab91d-31b5-48c3-b9a4-e681349f27f0}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="pch.cpp" />
+    <ClCompile Include="$(GeneratedFilesDir)module.g.cpp" />
+    <ClCompile Include="ReactPackageProvider.cpp" />
+    <ClCompile Include="ART.cpp" />
+    <ClCompile Include="ARTSurfaceView.cpp" />
+    <ClCompile Include="ARTGroup.cpp" />
+    <ClCompile Include="ARTShape.cpp" />
+    <ClCompile Include="ARTSurfaceViewManager.cpp" />
+    <ClCompile Include="ARTGroupViewManager.cpp" />
+    <ClCompile Include="ARTShapeViewManager.cpp" />
+    <ClCompile Include="PropHelper.cpp" />
+    <ClCompile Include="ARTText.cpp" />
+    <ClCompile Include="ARTTextViewManager.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="pch.h" />
+    <ClInclude Include="ReactPackageProvider.h" />
+    <ClInclude Include="ART.h" />
+    <ClInclude Include="ARTSurfaceView.h" />
+    <ClInclude Include="ARTGroup.h" />
+    <ClInclude Include="ARTShape.h" />
+    <ClInclude Include="ARTSurfaceViewManager.h" />
+    <ClInclude Include="ARTGroupViewManager.h" />
+    <ClInclude Include="ARTShapeViewManager.h" />
+    <ClInclude Include="PropHelper.h" />
+    <ClInclude Include="ARTText.h" />
+    <ClInclude Include="ARTTextViewManager.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ART.def" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="PropertySheet.props" />
+  </ItemGroup>
+  <ItemGroup>
+    <Midl Include="ReactPackageProvider.idl" />
+    <Midl Include="ARTNode.idl" />
+    <Midl Include="ARTSurfaceView.idl" />
+    <Midl Include="ARTContainer.idl" />
+    <Midl Include="ARTGroup.idl" />
+    <Midl Include="ARTShape.idl" />
+    <Midl Include="ARTText.idl" />
+  </ItemGroup>
+</Project>

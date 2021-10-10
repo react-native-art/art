@@ -1,0 +1,9 @@
+import "ARTNode.idl";
+
+namespace ART{
+    [default_interface]
+    runtimeclass ARTText : Windows.UI.Xaml.FrameworkElement, ARTNode {
+        ARTText(Microsoft.ReactNative.IReactContext context);
+        void UpdateProperties(Microsoft.ReactNative.IJSValueReader reader);
+    };
+}

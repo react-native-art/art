@@ -1,0 +1,11 @@
+namespace ART{
+[webhosthidden]
+interface ARTContainer
+{
+    void addChild(Windows.UI.Xaml.UIElement child, Int64 index);
+    void removeAllChildren();
+    void removeChildAt(Int64 index);
+    void replaceChild(Windows.UI.Xaml.UIElement oldChild, Windows.UI.Xaml.UIElement newChild);
+    void invalidate();
+}
+}

@@ -1,0 +1,10 @@
+import "ARTContainer.idl";
+
+namespace ART{
+    [webhosthidden]
+    interface ARTNode {
+        ARTContainer ARTParent;
+        Microsoft.ReactNative.IReactContext RNContext;
+        void renderTo(IInspectable session);
+    };
+}
