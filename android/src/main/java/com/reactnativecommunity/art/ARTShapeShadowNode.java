@@ -124,7 +124,7 @@ public class ARTShapeShadowNode extends ARTVirtualNode {
   }
 
   /**
-   * Sets up {@link #mPaint} according to the props set on a shadow view. Returns {@code true}
+   * Sets up {@param #paint} according to the props set on a shadow view. Returns {@code true}
    * if the stroke should be drawn, {@code false} if not.
    */
   protected boolean setupStrokePaint(Paint paint, float opacity) {
@@ -174,7 +174,7 @@ public class ARTShapeShadowNode extends ARTVirtualNode {
   }
 
   /**
-   * Sets up {@link #mPaint} according to the props set on a shadow view. Returns {@code true}
+   * Sets up {@param #paint} according to the props set on a shadow view. Returns {@code true}
    * if the fill should be drawn, {@code false} if not.
    */
   protected boolean setupFillPaint(Paint paint, float opacity) {
